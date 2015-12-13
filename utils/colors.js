@@ -20,6 +20,9 @@ colors.secondary = "#673AB7";
 colors.tertiary = "#D1C4E9";
 colors.white = "#EEE";
 
+colors.darkerGrey = "#444";
+colors.lightGrey = "#B6B6B6";
+
 export default {
   colors: colors,
   activeColors: activeColors

@@ -120,6 +120,11 @@ module.exports = React.createClass({
         >
           <RouteHandler {...this.props}/>
         </Container>
+        <div style={{position: "fixed", bottom: 0, width: "100%", background: colors.darkerGrey, color: colors.white, border: `2px solid ${colors.lightGrey}`}}>
+          <Container style={{maxWidth: 960}}>
+            <h1 style={{color: colors.white}}>Footer</h1>
+          </Container>
+        </div>
       </div>
     );
   }
