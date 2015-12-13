@@ -9,6 +9,8 @@ import typography from 'utils/typography';
 
 // Style code
 import 'css/github.css';
+import 'css/tableReset.css';
+
 
 const { rhythm, fontSizeToPx } = typography;
 
