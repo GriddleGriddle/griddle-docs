@@ -58,7 +58,7 @@ module.exports = React.createClass({
     })(this));
 
     return (
-      <div>
+      <Container maxWidth={960}>
         <Breakpoint minWidth={700}>
           <div>
             <div
@@ -103,7 +103,7 @@ module.exports = React.createClass({
           <br />
           <RouteHandler typography={typography} {...this.props}/>
         </Breakpoint>
-      </div>
+      </Container>
     );
   }
 });

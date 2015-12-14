@@ -59,7 +59,7 @@ module.exports = React.createClass({
                     fontSize: fontSizeToPx("25.5px").fontSize
                   }}
                 >
-                  <img src="griddle.png" />
+                  <img src="/griddle.png" />
                 </Link>
               </Span>
               <Span columns={8} last={true}>
@@ -119,12 +119,12 @@ module.exports = React.createClass({
           }}
         >
           <RouteHandler {...this.props}/>
+          <div style={{ background: colors.darkerGrey, color: colors.white, border: `2px solid ${colors.lightGrey}`}}>
+            <Container style={{maxWidth: 960}}>
+              <h1 style={{color: colors.white}}>Footer</h1>
+            </Container>
+          </div>
         </Container>
-        <div style={{position: "fixed", bottom: 0, width: "100%", background: colors.darkerGrey, color: colors.white, border: `2px solid ${colors.lightGrey}`}}>
-          <Container style={{maxWidth: 960}}>
-            <h1 style={{color: colors.white}}>Footer</h1>
-          </Container>
-        </div>
       </div>
     );
   }
