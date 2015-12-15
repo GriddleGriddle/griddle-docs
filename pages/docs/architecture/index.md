@@ -9,8 +9,6 @@ Griddle exists as multiple modules for extensibility. By default Griddle consist
 1. [griddle-render](https://github.com/griddlegriddle/griddle-render) - Series of dumb components
 1. [griddle-connector](https://github.com/griddlegriddle/griddle-connector) - Hook up the components and state management
 
-There are a number of reason for this architecture but it mainly boils down to extensibility and maintainability.
-
 ## griddle-core ##
 
 The module that is responsible for managing state for Griddle is griddle-core. It consists of a series of
@@ -71,28 +69,36 @@ Since the methods have the same name,`GRIDDLE_LOADED_DATA` from local-reducer wi
 Often it is not ideal to override a method in the context of a plugin and instead the desired outcome would be to wrap or compose an original reducer method as a
 series of reducer methods. To that end, griddle-core uses a concept of pre/post hooks.
 
-**\_AFTER method**
+**AFTER method**
 
 Append "\_AFTER" to any reducer method name to perform an additional reduce operation on the state object returned from the original reducer method.
 If there are multiple plugins that have an \_AFTER method for the same reducer method, they will be composed and run in the order they are passed to griddle-core
 (where the state of each additional reducer will be the input state to the next one).
 
 For example, say we define our reducer plugin array as
-`[data-reducer, local-reducer, subgrid-reducer, selection-reducer]`. If `subgrid-reducer` and `selection-reducer` both have a method `GRIDDLE_LOADED_DATA_AFTER`,
-the `GRIDDLE_LOADED_DATA` method from local-reducer will be run and the state will be passed into `GRIDDLE_LOADED_DATA_AFTER`. The `GRIDDLE_LOADED_DATA_AFTER` method
-in `selection-reducer` will then be run and the state returned from that method will be the state that is returned through connector to the views.
+`[data-reducer, local-reducer, subgrid-reducer, selection-reducer]`. If subgrid-reducer and selection-reducer both have a method GRIDDLE_LOADED_DATA_AFTER,
+the GRIDDLE_LOADED_DATA method from local-reducer will be run and the state will be passed into GRIDDLE_LOADED_DATA_AFTER. The GRIDDLE_LOADED_DATA_AFTER method
+in selection-reducer will then be run and the state returned from that method will be the state that is returned through connector to the views.
 
-**\_BEFORE method**
+![AFTER_REDUCER Diagram](afterReducer.png)
+
+**BEFORE method**
 
 Append \_BEFORE to any reducer method name to modify the state object passed to the default reducer method. Like \_AFTER, these methods are composed if there are
 other plugins that contain the same method name.
 
+![BEFORE_REDUCER Diagram](beforeReducer.png)
+
 **AFTER_REDUCE**
 
-If there is an operation that should run directly before returning the final state object for any reducer method, it should occur in a AFTER_REDUCE method.
-Like the _BEFORE / _AFTER methods, these are composed if they exist in multiple plugins.
+If there is an operation that should run directly before returning the final state object for **any** reducer method, it should occur in a AFTER_REDUCE method.
+Like the _BEFORE / _AFTER methods, these are composed if they exist in multiple plugins. 
+![AFTER_REDUCE Diagram](afterReduce.png)
 
 **BEFORE_REDUCE**
 
-If there is an operation that should run before any reducer method, it should occur in a BEFORE_REDUCE method. This is composed with other BEFORE_REDUCE methods
-in other plugins.
+If there is an operation that should run before **any** reducer method, it should occur in a BEFORE_REDUCE method. These BEFORE_REDUCE methods
+are composed with reducers in other plugins and added in the order that they are defined in the array.
+
+![BEFORE_REDUCE Diagram](beforeReduce.png)
+
