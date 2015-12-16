@@ -30,37 +30,10 @@ methods.
 ##### Reducer data flow ####
 
 When griddle-core is initialized, it takes an array of reducers to combine/compose into one reducer. Reducer methods will
- override other reducer methods with the same name that came before them. In the following example, the method in `local-reducer` will be used
-rather than the `data-reducer` as  the default reducers in Griddle are defined as `['data-reducer', 'local-reducer']` as the reducers to compose (it may seem
-curious that we even include the method in data reducer, however, we wanted to provide a starting point for anyone that wanted to override our default reducers).
+ override other reducer methods with the same name depending on the reducer's location in the array. The following diagram represents what would happen if
+we had two reducers called dataReducer and localReducer that were passed in to griddleReducer like `['data-reducer', 'local-reducer']`.
 
-**data-reducer.js**
-
-```
-export function GRIDDLE_LOADED_DATA(state, action, helpers) {
-  return state.set('data', helpers.addKeyToRows(Immutable.fromJS(action.data)))
-    .set('renderProperties', Immutable.fromJS(action.properties));
-}
-```
-
-**local-reducer.js**
-
-```
-export function GRIDDLE_LOADED_DATA(state, action, helpers) {
-  const columns = action.data.length > 0 ? Object.keys(action.data[0]) : [];
-  //set state's data to this
-  const tempState = state
-  .set('data', helpers.addKeyToRows(Immutable.fromJS(action.data)))
-  .set('allColumns', columns)
-  .set('renderProperties', Immutable.fromJS(action.properties))
-  .setIn(
-    ['pageProperties', 'maxPage'],
-    helpers.getPageCount(
-      action.data.length,
-      state.getIn(['pageProperties', 'pageSize'])));
-  return tempState;
-}
-```
+![Reducer combining diagram](reducerCombining.png)
 
 Since the methods have the same name,`GRIDDLE_LOADED_DATA` from local-reducer will be the method that gets used when the action with that name is dispatched.
 
@@ -71,14 +44,15 @@ series of reducer methods. To that end, griddle-core uses a concept of pre/post 
 
 **AFTER method**
 
-Append "\_AFTER" to any reducer method name to perform an additional reduce operation on the state object returned from the original reducer method.
-If there are multiple plugins that have an \_AFTER method for the same reducer method, they will be composed and run in the order they are passed to griddle-core
-(where the state of each additional reducer will be the input state to the next one).
+Append "\_AFTER" to any reducer method name to perform an additional reduce operation on the state object
 
 For example, say we define our reducer plugin array as
 `[data-reducer, local-reducer, subgrid-reducer, selection-reducer]`. If subgrid-reducer and selection-reducer both have a method GRIDDLE_LOADED_DATA_AFTER,
-the GRIDDLE_LOADED_DATA method from local-reducer will be run and the state will be passed into GRIDDLE_LOADED_DATA_AFTER. The GRIDDLE_LOADED_DATA_AFTER method
-in selection-reducer will then be run and the state returned from that method will be the state that is returned through connector to the views.
+the operation flow for GRIDDLE_LOADED_DATA will look a little like the following:
+
+1. The `GRIDDLE_LOADED_DATA` method will reduce the state object
+1. `GRIDDLE_LOADED_DATA_AFTER` in subgrid-reducer will return a new (immutable) state object based on the state object it received
+1. `GRIDDLE_LOADED_DATA_AFTER` in selection-reducer will return a new state object which will be the resultant state object for the dispatch
 
 ![AFTER_REDUCER Diagram](afterReducer.png)
 
@@ -92,13 +66,25 @@ other plugins that contain the same method name.
 **AFTER_REDUCE**
 
 If there is an operation that should run directly before returning the final state object for **any** reducer method, it should occur in a AFTER_REDUCE method.
-Like the _BEFORE / _AFTER methods, these are composed if they exist in multiple plugins. 
+AFTER_REDUCE methods are composed similarly to the BEFORE / AFTER methods above.
 ![AFTER_REDUCE Diagram](afterReduce.png)
 
 **BEFORE_REDUCE**
 
-If there is an operation that should run before **any** reducer method, it should occur in a BEFORE_REDUCE method. These BEFORE_REDUCE methods
-are composed with reducers in other plugins and added in the order that they are defined in the array.
+If there is an operation that should run before **any** reducer method, it should occur in a BEFORE_REDUCE method.
+BEFORE_REDUCE methods are composed similarly to the BEFORE / AFTER methods above.
 
 ![BEFORE_REDUCE Diagram](beforeReduce.png)
+
+## griddle-render ##
+
+This package is the main Griddle component and a series of mostly dumb components that make up the grid. The dumb components
+are exported so that they can be overriden or wrapped in other components and passed in to Griddle as component overrides.
+There is more on exactly how to achieve this in the Customization documentation (Add the link when that section is done).
+
+## griddle-connector ##
+
+This package hooks up griddle-render to griddle-core. This is mostly a standard Redux setup, however, we are treating each grid as its own "application
+within an application" for state management purposes -- If there are two instances of Griddle on a page, they will not share the same
+state tree.
 
