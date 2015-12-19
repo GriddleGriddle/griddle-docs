@@ -3,8 +3,8 @@ import DocumentTitle from 'react-document-title';
 import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
 import { colors, activeColors } from 'utils/colors'
 import { margins } from 'utils/layout';
+import { getBasicData } from 'utils/data';
 import Griddle from 'griddle-test';
-import Markdown from 'react-remarkable';
 import Code from 'utils/code';
 
 import 'css/normalize.css';
@@ -12,7 +12,7 @@ import 'css/code.css';
 
 module.exports = React.createClass({
   render() {
-    const data = getData();
+    const data = getBasicData();
 
     return (
         <div>
@@ -77,42 +77,3 @@ import Griddle from 'griddle-react';`}
     );
   }
 });
-
-function getData() {
-  return [
-  {
-    "name": "Mayer Leonard",
-    "city": "Kapowsin",
-    "state": "Hawaii",
-    "country": "United Kingdom",
-    "company": "Ovolo",
-  },
-  {
-    "name": "Koch Becker",
-    "city": "Johnsonburg",
-    "state": "New Jersey",
-    "country": "Madagascar",
-    "company": "Eventage",
-  },
-  {
-    "name": "Lowery Hopkins",
-    "city": "Blanco",
-    "state": "Arizona",
-    "country": "Ukraine",
-    "company": "Comtext",
-  },
-  {
-    "name": "Walters Mays",
-    "city": "Glendale",
-    "state": "Illinois",
-    "country": "New Zealand",
-    "company": "Corporana",
-  },
-  {
-    "name": "Shaw Lowe",
-    "city": "Coultervillle",
-    "state": "Wyoming",
-    "country": "Ecuador",
-    "company": "Isologica",
-  }];
-}
