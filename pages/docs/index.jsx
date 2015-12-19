@@ -4,6 +4,8 @@ import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
 import { margins } from 'utils/layout';
 import Code from 'utils/code';
 import { getBasicData } from 'utils/data';
+import Markdown from 'utils/markdown';
+import * as Test from './test.md';
 
 import Griddle, { DefaultModules } from 'griddle-test';
 
@@ -23,6 +25,7 @@ module.exports = React.createClass({
     return (
       <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
           <div>
+          <Markdown {...Test} />
           <h1>{module.exports.metadata().title}</h1>
           <p>Griddle is in npm as griddle-react. Simply install Griddle and react from npm:</p>
           <Code>npm install react griddle-react</Code>
@@ -86,7 +89,6 @@ import Griddle from 'griddle-react';`}
 
 `}
           </Code>
-
           <Griddle data={data}>
             <DefaultModules.RowDefinition keyColumn="id">
               <DefaultModules.ColumnDefinition id="name" order={2} />
