@@ -21,7 +21,6 @@ module.exports = React.createClass({
       return route.path;
     });
     const docsActive = (routes.indexOf(link("/docs/")) >= 0);
-    const examplesActive = (routes.indexOf(link("/examples/")) >= 0);
 
     return (
       <div>
@@ -70,27 +69,10 @@ module.exports = React.createClass({
                     textDecoration: 'none',
                     marginLeft: rhythm(1/2)
                   }}
-                  href="https://github.com/gatsbyjs/gatsby"
+                  href="https://github.com/griddlegriddle/griddle"
                 >
                   Github
                 </a>
-                <Link
-                  to={link('/examples/')}
-                  style={{
-                    background: examplesActive ? activeColors.bg : colors.bg,
-                    color: examplesActive ? activeColors.fg : colors.fg,
-                    float: 'right',
-                    textDecoration: 'none',
-                    paddingLeft: rhythm(1/2),
-                    paddingRight: rhythm(1/2),
-                    paddingBottom: rhythm(1),
-                    marginBottom: rhythm(-1),
-                    paddingTop: rhythm(1),
-                    marginTop: rhythm(-1)
-                  }}
-                >
-                  Examples
-                </Link>
                 <Link
                   to={link('/docs/')}
                   style={{
