@@ -28,7 +28,7 @@ module.exports = React.createClass({
           style={{
             background: colors.bg,
             color: colors.fg,
-            height: 110,
+            height: 85,
             borderBottom: `1px solid ${colors.border}`
           }}
         >
@@ -41,7 +41,7 @@ module.exports = React.createClass({
             <Grid
               columns={12}
               style={{
-                padding: `${rhythm(1/2)} 0`
+                padding: `0`
               }}
             >
               <Span
@@ -76,16 +76,10 @@ module.exports = React.createClass({
                 <Link
                   to={link('/docs/')}
                   style={{
-                    background: docsActive ? activeColors.bg : colors.bg,
+                    borderBottom: docsActive ? `3px solid ${activeColors.bg}` : null,
                     color: docsActive ? activeColors.fg : colors.fg,
                     float: 'right',
-                    textDecoration: 'none',
-                    paddingLeft: rhythm(1/2),
-                    paddingRight: rhythm(1/2),
-                    paddingBottom: rhythm(1),
-                    marginBottom: rhythm(-1),
-                    paddingTop: rhythm(1),
-                    marginTop: rhythm(-1)
+                    textDecoration: 'none'
                   }}
                 >
                   Documentation
