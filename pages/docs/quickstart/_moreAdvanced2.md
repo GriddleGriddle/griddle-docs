@@ -6,7 +6,7 @@ properties is as follows:
 <Griddle data={data}>
   <RowDefinition keyColumn="id">
     <ColumnDefinition id="name" order={2} />
-    ColumnDefinition id="state" order={1} />
+    <ColumnDefinition id="state" order={1} />
   </RowDefinition>
 </Griddle>
 ```
