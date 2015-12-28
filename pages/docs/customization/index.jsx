@@ -2,7 +2,8 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import Markdown from 'utils/markdown';
 
-import Griddle, { DefaultModules } from 'griddle-test';
+import Griddle from 'griddle-test';
+import { DefaultModules } from 'griddle-render';
 import { getBasicData } from 'utils/data';
 
 
@@ -18,13 +19,12 @@ const LinkData = React.createClass({
 const ApplyBackground = SettingsToggle => React.createClass({
   render() {
     return (
-      <div style={{backgroundColor: "#804AE3"}}>
-        <SettingsToggle {...props} />
-      </div>
+      <span style={{backgroundColor: "#EDEDED", fontSize: 38}}>
+        <SettingsToggle {...this.props} />
+      </span>
     );
   }
 });
-
 const SettingsWithBackground = ApplyBackground(DefaultModules.SettingsToggle);
 
 module.exports = React.createClass({
@@ -57,7 +57,8 @@ module.exports = React.createClass({
           <Markdown {...example1Summary} />
           <Griddle data={data}
             columns={['name', 'state']}
-            components={{SettingsToggle: SettingsWithBackground}} />
+            components={{SettingsToggle: SettingsWithBackground}}
+          />
 
         </div>
       </DocumentTitle>

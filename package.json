@@ -14,7 +14,7 @@
   "dependencies": {
     "chroma-js": "0.7.2",
     "color-pairs-picker": "^1.3.5",
-    "griddle-test": "0.0.6",
+    "griddle-test": "latest",
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-document-title": "^2.0.1",
