@@ -15,7 +15,7 @@ While it's technically possible to replace any package in the main Griddle archi
 design decisions have been made that will hopefully allow individual parts of the
 grid component to be overridden while still leveraging the rest of the code.
 
-### Overriding a View Component ###
+### Custom Column Components ###
 
 There are quite a few points to extend or override parts of Griddle but for now
 lets take a look at how we would override a view component.

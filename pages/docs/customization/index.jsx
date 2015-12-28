@@ -8,7 +8,8 @@ import { getBasicData } from 'utils/data';
 
 
 import intro from './_intro.md';
-import example1Summary from './_example1Summary.md';
+import exampleSummary from './_exampleSummary.md';
+import componentOverrideSummary from './_componentOverrideSummary.md';
 
 const LinkData = React.createClass({
   render() {
@@ -54,12 +55,13 @@ module.exports = React.createClass({
             </RowDefinition>
           </Griddle>
 
-          <Markdown {...example1Summary} />
+          <Markdown {...exampleSummary} />
           <Griddle data={data}
             columns={['name', 'state']}
             components={{SettingsToggle: SettingsWithBackground}}
           />
 
+          <Markdown {...componentOverrideSummary} />
         </div>
       </DocumentTitle>
     );
