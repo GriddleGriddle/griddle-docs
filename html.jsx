@@ -28,11 +28,13 @@ module.exports = React.createClass({
           <meta name='viewport' content='user-scalable=no width=device-width, initial-scale=1.0 maximum-scale=1.0'/>
           <title>{title}</title>
           <link rel="shortcut icon" href={this.props.favicon}/>
+          <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" />
           <TypographyStyle/>
         </head>
         <body className="landing-page">
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
           <script src={link("/bundle.js")}/>
+          <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js" />
         </body>
       </html>
     );

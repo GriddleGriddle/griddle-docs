@@ -4,8 +4,9 @@ import Markdown from 'utils/markdown';
 
 import Griddle from 'griddle-test';
 import { DefaultModules } from 'griddle-render';
-import { getBasicData } from 'utils/data';
-
+import { getBasicData, getWeatherData } from 'utils/data';
+import omit from 'lodash.omit';
+import ChartistGraph from 'react-chartist';
 
 import intro from './_intro.md';
 import exampleSummary from './_exampleSummary.md';
@@ -26,6 +27,21 @@ const ApplyBackground = SettingsToggle => React.createClass({
     );
   }
 });
+
+function getLineChartData(data) {
+  return {
+    labels: ['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    series: data.map(d => [d.january, d.february, d.march, d.april, d.may, d.june, d.july, d.august, d.september, d.october, d.november, d.december])
+  }
+}
+
+const WeatherChart = React.createClass({
+  render() {
+    const data = getLineChartData(this.props.data);
+    return <ChartistGraph data={getLineChartData(this.props.data)} type={'Line'} />
+  }
+});
+
 const SettingsWithBackground = ApplyBackground(DefaultModules.SettingsToggle);
 
 module.exports = React.createClass({
@@ -40,6 +56,8 @@ module.exports = React.createClass({
 
   render() {
     const data = getBasicData();
+    const weatherData = getWeatherData();
+
     const {RowDefinition, ColumnDefinition} = DefaultModules;
 
     return (
@@ -62,6 +80,8 @@ module.exports = React.createClass({
           />
 
           <Markdown {...componentOverrideSummary} />
+
+          <Griddle data={weatherData} components={{Table: WeatherChart }} />
         </div>
       </DocumentTitle>
     );
