@@ -17,6 +17,8 @@
     "color-pairs-picker": "^1.3.5",
     "gatsby": "^0.7.6",
     "griddle-render": "0.0.6",
+    "griddle-selection-plugin": "0.0.7",
+    "griddle-subgrid-plugin": "0.0.2",
     "griddle-test": "^0.0.10",
     "lodash": "^3.10.1",
     "react": "^0.14.3",

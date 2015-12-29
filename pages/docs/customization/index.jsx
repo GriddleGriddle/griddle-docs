@@ -20,7 +20,7 @@ const LinkData = React.createClass({
 const ApplyBackground = SettingsToggle => React.createClass({
   render() {
     return (
-      <span style={{backgroundColor: "#EDEDED", fontSize: 38}}>
+      <span style={{backgroundColor: "#D8B9E0" }}>
         <SettingsToggle {...this.props} />
       </span>
     );
