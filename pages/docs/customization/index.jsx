@@ -5,7 +5,6 @@ import Markdown from 'utils/markdown';
 import Griddle from 'griddle-test';
 import { DefaultModules } from 'griddle-render';
 import { getBasicData, getWeatherData } from 'utils/data';
-import omit from 'lodash.omit';
 import ChartistGraph from 'react-chartist';
 
 import intro from './_intro.md';
@@ -35,9 +34,32 @@ function getLineChartData(data) {
   }
 }
 
+const Block = React.createClass({
+  render() {
+    return <div style={{ marginLeft: 10, marginRight: 5,  width: 10, height: 10, display: 'inline-block', backgroundColor: this.props.background}} />
+  }
+});
+
+const Legend = React.createClass({
+  render() {
+    return (
+      <div style={{display: "inline-block"}}>
+        <Block background="#d70206" />
+        Hoth
+
+        <Block background="#f4c63d" />
+        Coruscant
+
+        <Block background="#f05b4f" />
+        Tatooine
+      </div>
+    )
+  }
+});
+
 const WeatherChart = React.createClass({
   render() {
-    const data = getLineChartData(this.props.data);
+    const data = getLineChartData(this.props.visibleData);
     return <ChartistGraph data={getLineChartData(this.props.data)} type={'Line'} />
   }
 });
@@ -81,7 +103,7 @@ module.exports = React.createClass({
 
           <Markdown {...componentOverrideSummary} />
 
-          <Griddle data={weatherData} components={{Table: WeatherChart }} />
+          <Griddle data={weatherData} components={{Table: WeatherChart, SettingsToggle: Legend }} />
         </div>
       </DocumentTitle>
     );
