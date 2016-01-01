@@ -44,14 +44,17 @@ const Legend = React.createClass({
   render() {
     return (
       <div style={{display: "inline-block"}}>
-        <Block background="#d70206" />
-        Hoth
+        <div>
+          <Block background="#d70206" />
+          Hoth
 
-        <Block background="#f4c63d" />
-        Coruscant
+          <Block background="#f4c63d" />
+          Coruscant
 
-        <Block background="#f05b4f" />
-        Tatooine
+          <Block background="#f05b4f" />
+          Tatooine
+        </div>
+        <DefaultModules.Filter {...this.props} />
       </div>
     )
   }
@@ -103,7 +106,7 @@ module.exports = React.createClass({
 
           <Markdown {...componentOverrideSummary} />
 
-          <Griddle data={weatherData} components={{Table: WeatherChart, SettingsToggle: Legend }} />
+          <Griddle data={weatherData} components={{Table: WeatherChart, Filter: Legend }}/>
         </div>
       </DocumentTitle>
     );
