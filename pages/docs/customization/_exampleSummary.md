@@ -3,7 +3,7 @@ The props that the column custom component receives are:
 1. **data**: The data that would normally be passed to the column
 1. **rowData**: The rest of the data for the row
 
-## Other Components ##
+## Overriding non-Column Components ##
 
 All of the default components used in Griddle are exported as part of the DefaultModules object. The
 DefaultModules can be included and used as follows:
@@ -26,7 +26,7 @@ import Griddle, {DefaultModules} from 'griddle-react';
 1. **TableHeading**
 1. **TableHeadingCell**
 
-### Override Default Component Example ###
+### Basic Example ###
 
 Where ColumnComponents can be defined within the ColumnDefintion, all other components are customized through the `components` prop on Griddle.
 By default, the SettingsToggle component is basically just a button. Lets
