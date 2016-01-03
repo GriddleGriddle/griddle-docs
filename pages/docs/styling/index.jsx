@@ -7,6 +7,9 @@ import { DefaultModules } from 'griddle-render';
 import { getBasicData } from 'utils/data';
 
 import intro from './_intro.md';
+import disable from './_disable.md';
+import override from './_override.md';
+import icons from './_icons.md';
 
 module.exports = React.createClass({
   statics: {
@@ -44,9 +47,11 @@ module.exports = React.createClass({
         <div>
           <h1>{module.exports.metadata().title}</h1>
           <Markdown {...intro} />
-
+          <Markdown {...disable} />
           <Griddle data={data} settings={settings} />
+          <Markdown {...override} />
           <Griddle data={data} style={style} />
+          <Markdown {...icons} />
           <Griddle data={data} style={iconStyle} />
         </div>
       </DocumentTitle>
