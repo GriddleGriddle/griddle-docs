@@ -2,7 +2,7 @@ import React from 'react';
 import DocumentTitle from 'react-document-title';
 import Markdown from 'utils/markdown';
 
-import Griddle from 'griddle-test';
+import Griddle from 'griddle-react';
 import { DefaultModules } from 'griddle-render';
 import { getBasicData } from 'utils/data';
 

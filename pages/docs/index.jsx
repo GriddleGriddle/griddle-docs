@@ -11,7 +11,7 @@ import moreAdvanced1 from './quickstart/_moreAdvanced1.md';
 import moreAdvanced2 from './quickstart/_moreAdvanced2.md';
 import moreAdvanced3 from './quickstart/_moreAdvanced3.md';
 
-import Griddle from 'griddle-test';
+import Griddle from 'griddle-react';
 import { DefaultModules } from 'griddle-render';
 
 module.exports = React.createClass({

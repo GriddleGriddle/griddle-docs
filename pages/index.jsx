@@ -4,7 +4,7 @@ import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
 import { colors, activeColors } from 'utils/colors'
 import { margins } from 'utils/layout';
 import { getBasicData } from 'utils/data';
-import Griddle from 'griddle-test';
+import Griddle from 'griddle-react';
 import Code from 'utils/code';
 
 import 'css/normalize.css';
