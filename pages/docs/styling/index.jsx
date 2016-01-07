@@ -11,6 +11,18 @@ import disable from './_disable.md';
 import override from './_override.md';
 import icons from './_icons.md';
 
+const Ascending = React.createClass({
+  render() {
+    return <span style={{backgroundColor: "#FF00AA"}}>(asc)</span>
+  }
+});
+
+const Descending = React.createClass({
+  render() {
+    return <span style={{backgroundColor: "#AA00FF"}}>(desc)</span>
+  }
+});
+
 module.exports = React.createClass({
   statics: {
     metadata: function() {
@@ -36,8 +48,8 @@ module.exports = React.createClass({
 
     const iconStyle = {
       icons: {
-        sortAscending: '(asc)',
-        sortDescending: '(desc)'
+        sortAscending: <Ascending />,
+        sortDescending: <Descending />
       }
     }
 
