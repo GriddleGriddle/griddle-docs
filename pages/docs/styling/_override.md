@@ -1,10 +1,7 @@
-## Overriding Griddle's styles ##
+## Inline styles ##
 
-Griddle is styled with a series of inline style objects. Any of these objects can be overriden by passing 
-a style object into Griddle that contains the styles that should be modified.
-
-Griddle's components can be styled through a series of inline styles. Griddle is looking for
-the following inline style property names:
+Griddle's components can be styled through a series of inline styles. By default, the individual style objects are empty
+but can easily be overriden. Griddle is looking for the following inline style property names:
 
 - **column** - Styles relating to the columns
 - **columnTitle** - Column heading styles
@@ -25,10 +22,9 @@ const style = {
 }
 ```
 
-Next we would tell Griddle to use this new style object:
+Next we would tell Griddle to use this new style object (please note that we are not disabling the Griddle default inline styles so
+the provided styles are overriding the Griddle defaults):
 
 ```
-<Griddle data={data} settings={settings} />
+<Griddle data={data} style={style} />
 ```
-
-
