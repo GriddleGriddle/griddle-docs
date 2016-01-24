@@ -39,11 +39,18 @@ const HtmlContainer = React.createClass({
 
 const Card = React.createClass({
   render() {
+    const {author, link, markdown, title} = this.props;
+
     return (
       <div>
-        <h4>{this.props.title}</h4>
-        <small>{this.props.author}</small>
-        <HtmlContainer>{this.props.markdown.body}</HtmlContainer>
+        <h4>
+          <a href={link}>{title}</a>
+        </h4>
+        <small>{author}</small>
+        <HtmlContainer>{markdown.body}</HtmlContainer>
+        <a href={link}>
+          View the project on GitHub
+        </a>
       </div>
     );
   }
@@ -54,6 +61,10 @@ const Repeater = React.createClass({
     return <div>{this.props.data.map(d => <Card {...d} />)}</div>
   }
 });
+
+const Empty = React.createClass({
+  render() { return <span />}
+})
 
 module.exports = React.createClass({
   statics: {
@@ -70,7 +81,7 @@ module.exports = React.createClass({
       <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
         <div>
           <h1>{module.exports.metadata().title}</h1>
-          <Griddle data={getPluginData()} components={{Table: Repeater}} />
+          <Griddle data={getPluginData()} components={{Table: Repeater, Pagination: Empty, SettingsToggle: Empty}} />
         </div>
       </DocumentTitle>
     )
