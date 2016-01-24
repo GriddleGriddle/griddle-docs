@@ -1,11 +1,4 @@
-
-While this example only overrode one component, many custom components can be passed in to the `components` prop on Griddle.
-While this is a great way to handle customization, [Plugins](../plugins/) can often be a cleaner solution for handling multiple overrides -- especially
-if these same set of custom components may be reused on other Griddle components.
-
-### More Advanced Example ###
-
-Now that we have the basics out of the way, lets say we want to use this grid library for something other than a grid... We are going to render a series of
+Lets say we want to use this grid library for something other than a grid... We are going to render a series of
 weather related data as a chart but we want to use the state management and filtering / column choosing capabilities that are enabled by default in Griddle.
 Lets assume we have weather information for various planets based on earth months:
 

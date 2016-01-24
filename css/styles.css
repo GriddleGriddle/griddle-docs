@@ -5,3 +5,10 @@ h1, h2, h3, h4, h5, h6 {
 strong {
   color: #673AB7
 }
+
+li span.nestedNavigationItem {
+  display: inline-block;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  border-left: 1px solid #F1F1F1;
+}

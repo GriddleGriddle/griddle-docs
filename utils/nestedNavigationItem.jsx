@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   render() {
     return (
-      <span style={{display: "inline-block", marginLeft: "15"}}>
+      <span className="nestedNavigationItem">
         {this.props.children}
       </span>
     );

@@ -1,4 +1,4 @@
-### Classes (not yet implemented) ###
+### Classes ###
 
 Griddle can also be styled with CSS / SASS / whatever using class names. Griddle takes the following class name properties
 on the style object:
