@@ -1,5 +1,3 @@
-## Creating Plugins ##
-
 While having the overall architecture based on plugins has some advantages,
 the ability to have community plugins is far more important. Griddle plugins
 are very closely related to the [core architecture](../architecture/) (and its good to know that before

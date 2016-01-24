@@ -71,7 +71,7 @@ module.exports = React.createClass({
   statics: {
     metadata: function() {
       return {
-        order: 3.1,
+        order: 3.3,
         title: <NestedNavigationItem>Plugin Directory</NestedNavigationItem>
       }
     }

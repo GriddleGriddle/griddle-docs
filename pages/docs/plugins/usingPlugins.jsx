@@ -7,15 +7,16 @@ import GriddleSelectionPlugin from 'griddle-selection-plugin';
 
 import { getBasicData } from 'utils/data';
 
-import intro from './_intro.md';
-import creatingPlugins from './_creatingPlugins.md';
+import NestedNavigation from '../../../utils/nestedNavigationItem';
+
+import usingPlugins from './_usingPlugins.md';
 
 module.exports = React.createClass({
   statics: {
     metadata: function() {
       return {
-        order: 3,
-        title: "Plugins"
+        order: 3.1,
+        title: <NestedNavigation>Using Plugins</NestedNavigation>
       }
     }
   },
@@ -27,9 +28,17 @@ module.exports = React.createClass({
       <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
         <div>
           <h1>{module.exports.metadata().title}</h1>
-          <Markdown {...intro} />
+
+          <Markdown {...usingPlugins} />
+
+          <Griddle data={data}
+            columns={['name', 'state']}
+            plugins={[GriddleSelectionPlugin]}
+          />
+
+
         </div>
       </DocumentTitle>
-    )
+    );
   }
 });
