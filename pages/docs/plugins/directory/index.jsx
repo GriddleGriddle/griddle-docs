@@ -7,6 +7,7 @@ const { RowDefinition, ColumnDefinition } = DefaultModules;
 
 import Griddle from 'griddle-react';
 import * as plugins from '../../../../pluginDirectory';
+import NestedNavigationItem from '../../../../utils/nestedNavigationItem';
 
 function getPluginData() {
   let result = [];
@@ -70,8 +71,8 @@ module.exports = React.createClass({
   statics: {
     metadata: function() {
       return {
-        order: 1,
-        title: "Plugin Directory"
+        order: 3.1,
+        title: <NestedNavigationItem>Plugin Directory</NestedNavigationItem>
       }
     }
   },

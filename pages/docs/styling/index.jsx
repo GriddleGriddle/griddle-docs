@@ -27,7 +27,7 @@ module.exports = React.createClass({
   statics: {
     metadata: function() {
       return {
-        order: 3,
+        order: 4,
         title: "Styling"
       }
     }
