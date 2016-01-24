@@ -9,6 +9,7 @@ import Code from 'utils/code';
 
 import 'css/normalize.css';
 import 'css/code.css';
+import 'css/styles.css';
 
 module.exports = React.createClass({
   render() {

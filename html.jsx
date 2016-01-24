@@ -29,6 +29,7 @@ module.exports = React.createClass({
           <title>{title}</title>
           <link rel="shortcut icon" href={this.props.favicon}/>
           <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" />
+          <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css" />
           <TypographyStyle/>
         </head>
         <body className="landing-page">

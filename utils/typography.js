@@ -2,9 +2,9 @@ import Typography from 'typography';
 
 const options = {
   baseFontSize: '16px',
-  baseLineHeight: '24px',
+  baseLineHeight: '30px',
   bodyFontFamily: '"Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif',
-  headerFontFamily: '"Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif',
+  headerFontFamily: '"Raleway", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif',
   bodyWeight: 300,
   headerWeight: 600,
   boldWeight: 600,
