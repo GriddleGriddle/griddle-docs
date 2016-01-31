@@ -13,3 +13,21 @@ import Griddle from 'griddle-react';
 
 Define an array of JSON objects -- for our examples we have something that resembles the following:
 
+```
+[
+  {
+    "name": "Mayer Leonard",
+    "city": "Kapowsin",
+    "state": "Hawaii",
+    "country": "United Kingdom",
+    "company": "Ovolo",
+  }
+  ...
+]
+```
+
+Define a Griddle component referencing the data:
+
+```
+<Griddle data={data} />
+```

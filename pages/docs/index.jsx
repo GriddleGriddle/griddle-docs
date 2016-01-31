@@ -33,10 +33,10 @@ module.exports = React.createClass({
             <h1>{module.exports.metadata().title}</h1>
             <Markdown {...helloWorld} />
             <Griddle data={data} />
-
+            <br />
             <Markdown {...moreAdvanced1} />
             <Griddle data={data} columns={['name', 'state']} />
-
+            <br />
             <Markdown {...moreAdvanced2} />
             <Griddle data={data}>
               <DefaultModules.RowDefinition keyColumn="id">
@@ -44,7 +44,7 @@ module.exports = React.createClass({
                 <DefaultModules.ColumnDefinition id="state" order={1} />
               </DefaultModules.RowDefinition>
             </Griddle>
-
+            <br />
             <Markdown {...moreAdvanced3} />
         </div>
       </DocumentTitle>
