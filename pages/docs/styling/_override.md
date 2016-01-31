@@ -1,5 +1,3 @@
-## Inline styles ##
-
 Griddle's components can be styled through a series of inline styles. By default, the individual style objects are empty
 but can easily be overriden. Griddle is looking for the following inline style property names:
 

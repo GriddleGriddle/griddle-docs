@@ -12,3 +12,7 @@ li span.nestedNavigationItem {
   margin-bottom: 5px;
   border-left: 1px solid #F1F1F1;
 }
+
+.awesome-table-class {
+  font-size: 25px;
+}

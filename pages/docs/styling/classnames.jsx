@@ -5,28 +5,16 @@ import Markdown from 'utils/markdown';
 import Griddle from 'griddle-react';
 import { DefaultModules } from 'griddle-render';
 import { getBasicData } from 'utils/data';
+import NestedNavigation from '../../../utils/nestedNavigationItem';
 
-import intro from './_intro.md';
-import icons from './_icons.md';
-
-const Ascending = React.createClass({
-  render() {
-    return <span style={{backgroundColor: "#FF00AA"}}>(asc)</span>
-  }
-});
-
-const Descending = React.createClass({
-  render() {
-    return <span style={{backgroundColor: "#AA00FF"}}>(desc)</span>
-  }
-});
+import classnames from './_classnames.md';
 
 module.exports = React.createClass({
   statics: {
     metadata: function() {
       return {
-        order: 4,
-        title: "Styling"
+        order: 4.3,
+        title: <NestedNavigation>Classnames</NestedNavigation>
       }
     }
   },
@@ -34,13 +22,21 @@ module.exports = React.createClass({
   render() {
     const data = getBasicData();
 
+    const style = {
+      classNames: {
+        table: 'awesome-table-class'
+      }
+    };
+
     return (
       <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
         <div>
           <h1>{module.exports.metadata().title}</h1>
-          <Markdown {...intro} />
+          <Markdown {...classnames} />
+
+          <Griddle data={data} style={style} />
         </div>
       </DocumentTitle>
     );
   }
-})
+});

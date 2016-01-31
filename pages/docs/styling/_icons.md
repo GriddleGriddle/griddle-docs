@@ -1,5 +1,3 @@
-## Icons ##
-
 Similar to the inline style object, Griddle contains a custom icons object.
 
 The following icons are available to override:
