@@ -1,7 +1,11 @@
 The props that the column custom component receives are:
 
-1. **data**: The data that would normally be passed to the column
-1. **rowData**: The rest of the data for the row
+- **data**: The data that would normally be passed to the column
+- **rowData**: The rest of the data for the row
+- **originalData**: This is the row data without the Griddle __metadata property
+- **rowIndex**: The index of the current row in relation to the other rendered rows
+- **absoluteRowIndex** The index of the current row in the entire set of data
+- **extraData**: Any extraData to pass to the component (this can be data not tracked by Griddle.
 
 **Non-existant column components**
 
