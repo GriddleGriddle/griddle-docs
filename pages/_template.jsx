@@ -24,6 +24,17 @@ module.exports = React.createClass({
 
     return (
       <div>
+        { !docsActive ? <div style={{
+          color: colors.lightGrey,
+        }}>
+          <Container>
+            <Grid columns={12}>
+              <Span columns={12}>
+                <strong>Hi there!</strong> - This is the documentation for the pre-release version of Griddle. Please feel free to use this version but beware that changes may occur. Take a look at <a href="#new-stuff">what's new</a>
+              </Span>
+            </Grid>
+          </Container>
+        </div> : null}
         <div
           style={{
             background: colors.bg,
