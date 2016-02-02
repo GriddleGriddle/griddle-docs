@@ -95,9 +95,23 @@ module.exports = React.createClass({
           }}
         >
           <RouteHandler {...this.props}/>
-          <div style={{ background: colors.darkerGrey, color: colors.white, border: `2px solid ${colors.lightGrey}`}}>
+          <div style={{ background: colors.darkerGrey, color: colors.white, border: `2px solid ${colors.lightGrey}`, paddingTop: 15 }}>
             <Container style={{maxWidth: 960}}>
-              <h1 style={{color: colors.white}}>Footer</h1>
+              <Grid columns={12}>
+                <Span columns={12} style={{height: 40, margin: 0}}>
+                  <img src="/griddle.png" style={{width: 76, height: 35, float: "left", marginRight: 5 }} alt="Griddle"/>
+                  is a project by the Griddle core team and the <a href="https://github.com/GriddleGriddle/Griddle/graphs/contributors">community of awesome contributors</a>.
+                </Span>
+                <Span columns={12} className="opacity">
+                  <small>Example data has been generated with <a href="http://json-generator.com">json-generator.com</a>. Any data that resembles real people, places, companies, etc. is coincidence.</small>
+                </Span>
+                <Span columns={12} className="opacity">
+                  <small>Epic pancake logo by <a href="https://www.behance.net/ryanstraube">Ryan Straube</a></small>
+                </Span>
+                <Span columns={12}>
+                  <small>&copy; 2016 | Griddle</small>
+                </Span>
+              </Grid>
             </Container>
           </div>
         </Container>

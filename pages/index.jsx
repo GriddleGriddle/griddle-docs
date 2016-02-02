@@ -82,8 +82,8 @@ module.exports = React.createClass({
           }}>
             <Container style={{maxWidth: 960, minHeight: 800 }}>
               <h2 style={{color: colors.secondaryBorder}}>Quickstart</h2>
-              <p>Griddle is in npm as griddle-react. Simply install Griddle and react from npm:</p>
-              <Code>npm install react griddle-react</Code>
+              <p>Griddle is in npm as griddle-react. Simply install Griddle from npm:</p>
+              <Code>npm install griddle-react@alpha</Code>
 
               <p>From there, require react and griddle modules and you should be ready to create your grid!</p>
               <Code>{
@@ -107,14 +107,14 @@ import Griddle from 'griddle-react';`}
               </Code>
 
               <p>From there render your Griddle component passing in the fake data as the data property.</p>
-              <Code>{`<Griddle results={fakeData}/>`}
+              <Code>{`<Griddle data={fakeData}/>`}
               </Code>
             </Container>
           </div>
           <Container className="three_column_info">
             <Grid columns={12}>
               <Span columns={12}>
-                <h2>What's New</h2>
+                <h2 id="new-stuff">What's New</h2>
                 <ol>
                   <li><a href="docs/architecture/">New, module architecture</a></li>
                   <li><a href="docs/plugins/">First class plugin support</a></li>
