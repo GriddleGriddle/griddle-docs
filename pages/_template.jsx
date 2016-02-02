@@ -34,7 +34,7 @@ module.exports = React.createClass({
         >
           <Container
             style={{
-              padding: `${rhythm(1/2)}`,
+              paddingTop: `${rhythm(1/2)}`,
               paddingBottom: `${rhythm(1/2)}`
             }}
           >
@@ -71,7 +71,7 @@ module.exports = React.createClass({
                   }}
                   href="https://github.com/griddlegriddle/griddle"
                 >
-                  Github
+                  GitHub
                 </a>
                 <Link
                   to={link('/docs/')}

@@ -2,8 +2,23 @@ h1, h2, h3, h4, h5, h6 {
   color: #512DA8
 }
 
+a {
+  color: #03A9F4;
+  text-decoration: none;
+}
+
 strong {
   color: #673AB7
+}
+
+button.main {
+  border: 2px solid #FBFBFB;
+  border-radius: 5px;
+  text-transform: uppercase;
+  background: none;
+  padding: 10px 20px 10px 20px;
+  width: 180px;
+  margin-right: 10px;
 }
 
 li span.nestedNavigationItem {
@@ -15,4 +30,35 @@ li span.nestedNavigationItem {
 
 .awesome-table-class {
   font-size: 25px;
+}
+
+.grid-container {
+  padding-top: 5px;
+  margin-top: 10px;
+  background-color: #EDEDED;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.pagination {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.pagination button {
+  background: none;
+  border: none;
+}
+
+input[type=text] {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 10px;
+  width: 300px !important;
+}
+
+.three_column_info h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
