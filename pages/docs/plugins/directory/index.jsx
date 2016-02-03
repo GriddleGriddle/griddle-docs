@@ -72,14 +72,15 @@ module.exports = React.createClass({
     metadata: function() {
       return {
         order: 3.3,
-        title: <NestedNavigationItem>Plugin Directory</NestedNavigationItem>
+        title: <NestedNavigationItem>Plugin Directory</NestedNavigationItem>,
+        pageTitle: 'Plugin Directory'
       }
     }
   },
 
   render() {
     return (
-      <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
+      <DocumentTitle title={`${module.exports.metadata().pageTitle} | ${this.props.config.siteTitle}`}>
         <div>
           <h1>{module.exports.metadata().title}</h1>
           <Griddle data={getPluginData()} components={{Table: Repeater, Pagination: Empty, SettingsToggle: Empty}} />

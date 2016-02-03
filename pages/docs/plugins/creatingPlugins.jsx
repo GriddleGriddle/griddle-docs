@@ -16,14 +16,15 @@ module.exports = React.createClass({
     metadata: function() {
       return {
         order: 3.2,
-        title: <NestedNavigation>Creating Plugins</NestedNavigation>
+        title: <NestedNavigation>Creating Plugins</NestedNavigation>,
+        pageTitle: 'Creating Plugins'
       }
     }
   },
 
   render() {
     return (
-      <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
+      <DocumentTitle title={`${module.exports.metadata().pageTitle} | ${this.props.config.siteTitle}`}>
         <div>
           <h1>{module.exports.metadata().title}</h1>
 

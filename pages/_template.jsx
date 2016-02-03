@@ -73,12 +73,14 @@ module.exports = React.createClass({
                 </Link>
               </Span>
               <Span columns={8} last={true}>
+                <div>
                 <a
                   style={{
                     float: 'right',
                     color: colors.fg,
                     textDecoration: 'none',
-                    marginLeft: rhythm(1/2)
+                    marginLeft: rhythm(1/2),
+                    lineHeight: '24px'
                   }}
                   href="https://github.com/griddlegriddle/griddle"
                 >
@@ -90,11 +92,16 @@ module.exports = React.createClass({
                     borderBottom: docsActive ? `3px solid ${activeColors.bg}` : null,
                     color: docsActive ? activeColors.fg : colors.fg,
                     float: 'right',
-                    textDecoration: 'none'
+                    textDecoration: 'none',
+                    lineHeight: '24px'
                   }}
                 >
                   Documentation
                 </Link>
+                </div>
+                <div style={{position: 'relative'}}>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=griddlegriddle&repo=griddle&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="30px" style={{margin: 0, border: 0, position: 'absolute', right: -10, top: 35, opacity: 0.2}}></iframe>
+                </div>
               </Span>
             </Grid>
           </Container>

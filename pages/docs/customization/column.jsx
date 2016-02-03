@@ -24,7 +24,8 @@ module.exports = React.createClass({
     metadata: function() {
       return {
         order: 2.1,
-        title: <NestedNavigation>Custom Columns</NestedNavigation>
+        title: <NestedNavigation>Custom Columns</NestedNavigation>,
+        pageTitle: 'Custom Columns'
       }
     }
   },
@@ -32,7 +33,7 @@ module.exports = React.createClass({
   render() {
     const data = getBasicData();
     return (
-      <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
+      <DocumentTitle title={`${module.exports.metadata().pageTitle} | ${this.props.config.siteTitle}`}>
           <div>
             <h1>{module.exports.metadata().title}</h1>
             <Markdown {...customColumn1} />
