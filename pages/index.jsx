@@ -26,6 +26,12 @@ const FilterContainer = (props) => {
   </div>
 }
 
+const NoResultsContainer = (props) => (
+  <div className="noresults-container">
+    <DefaultModules.NoResults {...props} />
+  </div>
+);
+
 const style = {
   classNames: {
     pagination: 'pagination'
@@ -43,7 +49,7 @@ module.exports = React.createClass({
               <h3 style={{color: colors.white, textAlign: 'center', fontSize: 36, paddingTop: 20, fontWeight: 300}}>Griddle is a grid component for use with <a href="http://facebook.github.io/react/">React</a></h3>
               <Griddle
                 data={data}
-                components={{SettingsToggle: Empty, Table: Table, Filter: FilterContainer }}
+                components={{SettingsToggle: Empty, Table: Table, Filter: FilterContainer, NoResults: NoResultsContainer }}
                 style={style} />
               <div style={{textAlign: 'center', marginTop: 20 }}>
                 <span style={{background: colors.tertiary, color: colors.secondary, padding: 10, borderRadius: 5, fontWeight: 'bold', marginBottom: 10, width: 370, display: 'inline-block' }}>
