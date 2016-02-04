@@ -43,11 +43,13 @@ const Card = React.createClass({
     const {author, link, markdown, title} = this.props;
 
     return (
-      <div>
-        <h4>
+      <div style={{border: "1px solid #EDEDED", borderBottom: "2px solid #EDEDED", padding: 10, marginBottom: "20px", position: "relative" }}>
+        <h4 style={{marginBottom: 5}}>
           <a href={link}>{title}</a>
         </h4>
-        <small>{author}</small>
+        <small style={{ position: "absolute", top: 10, right: 30 }}>
+          {author}
+        </small>
         <HtmlContainer>{markdown.body}</HtmlContainer>
         <a href={link}>
           View the project on GitHub
