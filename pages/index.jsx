@@ -63,7 +63,7 @@ module.exports = React.createClass({
               <Span columns={4}>
                 <h2>Configurable</h2>
                 The recently reimagined Griddle is built with a great deal of customization in mind. If you like the default settings, awesome! If not, there are plenty of customization options. Griddle can now
-                accept custom componts to be used in place of the default Griddle components as well as <a href="docs/plugins">plugins!</a>
+                accept custom components to be used in place of the default Griddle components as well as <a href="docs/plugins">plugins!</a>
               </Span>
               <Span columns={4}>
                 <h2>Functional</h2>
