@@ -1,10 +1,9 @@
-Griddle has been created with customization in mind. In older version's of
-Griddle there was one component that had a ton of props on it to handle customization.
-While this worked, it was really not ideal for anyone using the grid to keep track of which
-props were needed and which could be ignored.
+Griddle has been created with customization in mind. Previous versions of
+Griddle were implemented as a single component with numerous props.
+While this worked, it was not ideal
 
-Starting in version 1.0, Griddle exists as several different modules that are
-responsible for different parts of the component. At a high level, separating
+Starting in version 1.0, Griddle exists as several separate packages; each of which are
+responsible for their repsective part of the overall component. At a high level, separating
 the packages into their own areas based on concern is the first step of enabling
 stronger customization. The description of the
 breakdown is available in the [architecture documentation](/docs/architecture/).
