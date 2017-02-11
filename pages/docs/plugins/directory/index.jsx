@@ -43,11 +43,13 @@ const Card = React.createClass({
     const {author, link, markdown, title} = this.props;
 
     return (
-      <div>
-        <h4>
+      <div style={{border: "1px solid #EDEDED", borderBottom: "2px solid #EDEDED", padding: 10, marginBottom: "20px", position: "relative" }}>
+        <h4 style={{marginBottom: 5}}>
           <a href={link}>{title}</a>
         </h4>
-        <small>{author}</small>
+        <small style={{ position: "absolute", top: 10, right: 30 }}>
+          {author}
+        </small>
         <HtmlContainer>{markdown.body}</HtmlContainer>
         <a href={link}>
           View the project on GitHub
@@ -72,14 +74,15 @@ module.exports = React.createClass({
     metadata: function() {
       return {
         order: 3.3,
-        title: <NestedNavigationItem>Plugin Directory</NestedNavigationItem>
+        title: <NestedNavigationItem>Plugin Directory</NestedNavigationItem>,
+        pageTitle: 'Plugin Directory'
       }
     }
   },
 
   render() {
     return (
-      <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
+      <DocumentTitle title={`${module.exports.metadata().pageTitle} | ${this.props.config.siteTitle}`}>
         <div>
           <h1>{module.exports.metadata().title}</h1>
           <Griddle data={getPluginData()} components={{Table: Repeater, Pagination: Empty, SettingsToggle: Empty}} />

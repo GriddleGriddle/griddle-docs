@@ -26,6 +26,12 @@ const FilterContainer = (props) => {
   </div>
 }
 
+const NoResultsContainer = (props) => (
+  <div className="noresults-container">
+    <DefaultModules.NoResults {...props} />
+  </div>
+);
+
 const style = {
   classNames: {
     pagination: 'pagination'
@@ -43,7 +49,7 @@ module.exports = React.createClass({
               <h3 style={{color: colors.white, textAlign: 'center', fontSize: 36, paddingTop: 20, fontWeight: 300}}>Griddle is a grid component for use with <a href="http://facebook.github.io/react/">React</a></h3>
               <Griddle
                 data={data}
-                components={{SettingsToggle: Empty, Table: Table, Filter: FilterContainer }}
+                components={{SettingsToggle: Empty, Table: Table, Filter: FilterContainer, NoResults: NoResultsContainer }}
                 style={style} />
               <div style={{textAlign: 'center', marginTop: 20 }}>
                 <span style={{background: colors.tertiary, color: colors.secondary, padding: 10, borderRadius: 5, fontWeight: 'bold', marginBottom: 10, width: 370, display: 'inline-block' }}>
@@ -57,7 +63,7 @@ module.exports = React.createClass({
               <Span columns={4}>
                 <h2>Configurable</h2>
                 The recently reimagined Griddle is built with a great deal of customization in mind. If you like the default settings, awesome! If not, there are plenty of customization options. Griddle can now
-                accept custom componts to be used in place of the default Griddle components as well as <a href="docs/plugins">plugins!</a>
+                accept custom components to be used in place of the default Griddle components as well as <a href="docs/plugins">plugins!</a>
               </Span>
               <Span columns={4}>
                 <h2>Functional</h2>

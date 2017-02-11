@@ -4,6 +4,5 @@ limiting how people could use the grid. While having a starting point is nice,
 constantly adding new features at the cost of code clarity / filesize is not ideal.
 
 Griddle 1.0 is based on plugins -- so much so that things that used to be
-core Griddle features are now plugins. Lets take a look at how to add a subgrid
-plugin to core Griddle.
+core Griddle features are now plugins.
 

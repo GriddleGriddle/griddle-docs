@@ -14,7 +14,8 @@ module.exports = React.createClass({
     metadata: function() {
       return {
         order: 4.3,
-        title: <NestedNavigation>Classnames</NestedNavigation>
+        title: <NestedNavigation>Classnames</NestedNavigation>,
+        pageTitle: 'Classnames'
       }
     }
   },
@@ -29,7 +30,7 @@ module.exports = React.createClass({
     };
 
     return (
-      <DocumentTitle title={`${module.exports.metadata().title} | ${this.props.config.siteTitle}`}>
+      <DocumentTitle title={`${module.exports.metadata().pageTitle} | ${this.props.config.siteTitle}`}>
         <div>
           <h1>{module.exports.metadata().title}</h1>
           <Markdown {...classnames} />

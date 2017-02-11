@@ -1,7 +1,7 @@
 While having the overall architecture based on plugins has some advantages,
 the ability to have community plugins is far more important. Griddle plugins
 are very closely related to the [core architecture](../architecture/) (and its good to know that before
-proceeding) and can _almost_ be thought of as mini redux powered modules.
+proceeding) and are basically mini redux powered modules.
 
 A Griddle plugin is, by default, a module that consists of the following properties:
 
