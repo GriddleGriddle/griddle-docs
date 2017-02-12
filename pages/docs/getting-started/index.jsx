@@ -64,13 +64,23 @@ const gettingStarted2 = `
   You'll notice that filtering, sorting, and pagination work out of the box. But lets say you want to only render the \`name\`, \`state\`, and \`company\` columns and want to customize the column titles.
 
   We can achieve that with some of Griddle's basic customization options.
+`;
 
+const customization = `
+  ## Basic Customization ##
   #### Import RowDefinition and ColumnDefinition ####
 
   \`\`\`
     import Griddle, { plugins, RowDefinition, ColumnDefinition} from 'griddle-react';
   \`\`\`
 
+  #### Create a custom component for linking from the state column ####
+
+  Griddle has the concept of custom components for columns and column headings. We are going to gloss over this for now but please see [customization](/customization/) for more on this. All the information we need to know is we will receive a value prop.
+
+  \`\`\`
+  const  customLocationComponent = ({value}) => <a href={\`https://www.google.com/maps/place/$\{value\}/>\`} target="_blank">{value}</a>
+  \`\`\`
   #### Use these configuration components in Griddle definition ####
 
   \`\`\`
@@ -85,8 +95,11 @@ const gettingStarted2 = `
       </RowDefinition>
     </Griddle>
   \`\`\`
+`
 
+const customization2 = `
 
+  These customization options are pretty rudimentary but CustomComponents can do way way more than what we're doing here. These components can \`connect\` into Griddle's state and get a lot more information or hook into outside stores/API's etc. Even with all this, we've only scratched the surface of what we can do to customize Griddle. In the [customization section](/customization), we will learn more about how much customization we can apply to Griddle (spoilers: its a lot).
 `
 
 
@@ -94,6 +107,7 @@ const SomeReactCode = React.createClass({
 
   render () {
     const page = this.props.route.page
+    const customLocationComponent = ({value}) => <a href={`https://www.google.com/maps/place/${value}/>`} target="_blank">{value}</a>
 
     return (
       <DocumentTitle title={`${page.data.title} | ${config.siteTitle}`}>
@@ -107,6 +121,8 @@ const SomeReactCode = React.createClass({
             styleConfig={{ styles: { Pagination: { marginBottom: 20 }} }}
           />
           <Markdown text={gettingStarted2} />
+          <hr />
+          <Markdown text={customization} />
           <Griddle
             data={fakeData}
             plugins={[plugins.LocalPlugin]}
@@ -115,10 +131,11 @@ const SomeReactCode = React.createClass({
           >
             <RowDefinition>
               <ColumnDefinition id="name" title="Employee Name" />
-              <ColumnDefinition id="state" title="Location" order={1} width={400}/>
+              <ColumnDefinition id="state" title="Location" order={1} width={400} customComponent={customLocationComponent} />
               <ColumnDefinition id="company" title="Organization" />
             </RowDefinition>
           </Griddle>
+          <Markdown text={customization2} />
         </div>
        </DocumentTitle>
     )
