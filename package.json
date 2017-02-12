@@ -9,6 +9,7 @@
     "gatsby": "^0.12.28",
     "griddle-react": "^1.0.0-beta.1",
     "lodash": "^4.17.2",
+    "markdown-react-js": "^0.3.0",
     "react-document-title": "^2.0.1",
     "react-markdown": "^2.4.4",
     "react-motion": "^0.1.0",
