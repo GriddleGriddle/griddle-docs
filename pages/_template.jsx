@@ -59,7 +59,7 @@ module.exports = React.createClass({
                     fontSize: adjustFontSizeTo('25.5px').fontSize,
                   }}
                 >
-                  <img src="griddle.png" alt="Griddle" />
+                  <img src="/griddle.png" alt="Griddle" />
                 </Link>
               </Span>
               <Span columns={8} last>
