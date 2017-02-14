@@ -79,7 +79,7 @@ const customization = `
   Griddle has the concept of custom components for columns and column headings. We are going to gloss over this for now but please see [customization](/customization/) for more on this. All the information we need to know is we will receive a value prop.
 
   \`\`\`
-  const  customLocationComponent = ({value}) => <a href={\`https://www.google.com/maps/place/$\{value\}/>\`} target="_blank">{value}</a>
+  const customLocationComponent = ({value}) => <a href={\`https://www.google.com/maps/place/$\{value\}/>\`} target="_blank">{value}</a>
   \`\`\`
   #### Use these configuration components in Griddle definition ####
 
@@ -143,4 +143,3 @@ const SomeReactCode = React.createClass({
 })
 
 export default SomeReactCode
-

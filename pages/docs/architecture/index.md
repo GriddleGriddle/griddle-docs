@@ -86,7 +86,7 @@ Griddle uses [reselect](https://github.com/reactjs/reselect) and selectors to ob
 allow for some performance benefit but also make the code a little easier to follow. The container components will use
 individual selectors to obtain the data that they need.
 
-## Plugabble Architecture ##
+## Pluggable Architecture ##
 
 This architecture allows overriding any part of this system while keeping everything else intact. For example, a plugin could
 have a series of its own container components and selectors and the view components and reducers would work with out any modification.
