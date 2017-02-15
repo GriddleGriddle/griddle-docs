@@ -54,10 +54,11 @@ const apiExample = `
   Using the properties noted above, we're able to make our table load data from an API pretty easily.
 
   In this example, we'll be making a component that wraps Griddle that will load new data when paging through data. For example purposes, this is going to be a simple function that receives all relevant table state properties and updates the values passed into Griddle.
-
-  
 `
 
+const componentCode = `
+This can be accomplished with the following:
+\`\`\`
 const fakeLoadDataFromAPI = (currentPage, pageSize, callback) => {
   setTimeout(() => {
     callback({
@@ -66,6 +67,64 @@ const fakeLoadDataFromAPI = (currentPage, pageSize, callback) => {
     });
   }, 500);
 }
+
+class APITable extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    // Initialize to the first page of results.
+    this.state = {
+      data: fakeData.slice(0, 5),
+      currentPage: 1,
+      pageSize: 5,
+      recordCount: fakeData.length
+    };
+  }
+
+  render() {
+    const { data, currentPage, pageSize, recordCount } = this.state;
+    return (
+      <Griddle
+        data={data}
+        pageProperties={{
+          currentPage,
+          pageSize,
+          recordCount,
+        }}
+        events={{
+          onNext: this._onNext,
+          onPrevious: this._onPrevious,
+          onGetPage: this._onGetPage,
+        }}
+        components={{
+          Filter: () => <span />,
+          SettingsToggle: () => <span />
+        }}
+      />
+    );
+  }
+
+  updateTableState = ({ data, currentPage }) => {
+    this.setState({ data, currentPage });
+  }
+
+  _onNext = () => {
+    const { currentPage, pageSize } = this.state;
+    fakeLoadDataFromAPI(currentPage + 1, pageSize, this.updateTableState);
+  }
+
+  _onPrevious = () => {
+    const { currentPage, pageSize } = this.state;
+    fakeLoadDataFromAPI(currentPage - 1, pageSize, this.updateTableState);
+  }
+
+  _onGetPage = (pageNumber) => {
+    const { pageSize } = this.state;
+    fakeLoadDataFromAPI(pageNumber, pageSize, this.updateTableState);
+  }
+}
+\`\`\`
+`
 
 class APITable extends Component {
   constructor(props, context) {
@@ -133,6 +192,8 @@ const Controlled = React.createClass({
           <Markdown text={start} />
           <Markdown text={apiExample} />
           <APITable />
+          <br />
+          <Markdown text={componentCode} />
          </div>
       </DocumentTitle>
     );
