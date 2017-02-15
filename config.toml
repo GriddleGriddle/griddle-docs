@@ -6,5 +6,6 @@ docPages = [
   "/docs/getting-started/",
   "/docs/architecture/",
   "/docs/customization/",
+  "/docs/controlling-griddle/",
   "/docs/styles/"
 ]
