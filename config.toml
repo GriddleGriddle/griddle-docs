@@ -3,7 +3,6 @@ baseColor = "#512DA8"
 linkPrefix = "/gatsby-starter-documentation"
 docPages = [
   "/docs/",
-  "/docs/getting-started/",
   "/docs/architecture/",
   "/docs/api/",
   "/docs/customization/",
