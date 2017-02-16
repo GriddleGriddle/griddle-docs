@@ -75,26 +75,9 @@ module.exports = React.createClass({
                   Github
                 </a>
                 <Link
-                  to={prefixLink('/examples/')}
-                  style={{
-                    background: examplesActive ? activeColors.bg : colors.bg,
-                    color: examplesActive ? activeColors.fg : colors.fg,
-                    float: 'right',
-                    textDecoration: 'none',
-                    paddingLeft: rhythm(1/2),
-                    paddingRight: rhythm(1/2),
-                    paddingBottom: rhythm(3/4),
-                    marginBottom: rhythm(-1),
-                    paddingTop: rhythm(1),
-                    marginTop: rhythm(-1),
-                  }}
-                >
-                  Examples
-                </Link>
-                <Link
                   to={prefixLink('/docs/')}
                   style={{
-                    background: docsActive ? activeColors.bg : colors.bg,
+                    background: colors.bg,
                     color: docsActive ? activeColors.fg : colors.fg,
                     float: 'right',
                     textDecoration: 'none',
@@ -109,7 +92,7 @@ module.exports = React.createClass({
                   Documentation
                 </Link>
                 <div style={{position: 'relative'}}>
-                  <iframe src="https://ghbtns.com/github-btn.html?user=griddlegriddle&repo=griddle&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="30px" style={{margin: 0, border: 0, position: 'absolute', right: -10, top: 35, opacity: 0.2}}></iframe>
+                  <iframe src="https://ghbtns.com/github-btn.html?user=griddlegriddle&repo=griddle&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="30px" style={{margin: 0, border: 0, position: 'absolute', right: -10, top: 35, opacity: 0.4}}></iframe>
                 </div>
               </Span>
             </Grid>

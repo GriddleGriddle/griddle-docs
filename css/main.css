@@ -1,3 +1,23 @@
 body {
   font-family: arial, sans-serif;
 }
+
+button, select {
+  display: inline-block;
+  font-size: 18px;
+  margin: 0 5px 0 5px;
+  padding: 0 5px 0 5px;
+  font-family: arial, sans-serif;
+  color: #649;
+  background: rgba(0,0,0,0);
+  border: solid 1px #649;
+  height: 32px;
+}
+
+button:focus {
+  outline: none
+}
+
+select {
+  padding-top: 2px;
+}

@@ -21,15 +21,18 @@ module.exports = React.createClass({
     return this.context.router.push(e.target.value)
   },
 
-  render () {
-    const childPages = config.docPages.map((p) => {
+  getChildPages(pages) {
+    return pages.map((p) => {
       const page = find(this.props.route.pages, (_p) => _p.path === p)
       return {
         title: page.data.title,
         path: page.path,
       }
     })
-    const docOptions = childPages.map((child) =>
+  },
+
+  getChildPageOptions(childPages) {
+    return childPages.map((child) =>
       <option
         key={prefixLink(child.path)}
         value={prefixLink(child.path)}
@@ -37,8 +40,11 @@ module.exports = React.createClass({
         {child.title}
       </option>
 
-    )
-    const docPages = childPages.map((child) => {
+    );
+  },
+
+  getDocPages(childPages) {
+    return childPages.map((child) => {
       const isActive = prefixLink(child.path) === this.props.location.pathname
       return (
         <li
@@ -57,7 +63,34 @@ module.exports = React.createClass({
           </Link>
         </li>
       )
-    })
+    });
+  },
+
+  getLeftSection(title, docPages) {
+    return (
+      <span>
+        <h2>{title}</h2>
+        <ul
+          style={{
+            listStyle: 'none',
+            marginLeft: 0,
+            marginTop: rhythm(1/2),
+          }}
+        >
+          {docPages}
+        </ul>
+      </span>
+    );
+  },
+  render () {
+    const childPages = this.getChildPages(config.docPages);
+    const docOptions = this.getChildPageOptions(childPages);
+    const docPages = this.getDocPages(childPages);
+    
+    const examples = this.getChildPages(config.examplePages);
+    const exampleOptions = this.getChildPageOptions(examples);
+    const examplePages = this.getDocPages(examples);
+
     return (
       <div>
         <Breakpoint
@@ -72,15 +105,8 @@ module.exports = React.createClass({
               borderRight: '1px solid lightgrey',
             }}
           >
-            <ul
-              style={{
-                listStyle: 'none',
-                marginLeft: 0,
-                marginTop: rhythm(1/2),
-              }}
-            >
-              {docPages}
-            </ul>
+            { this.getLeftSection("Documentation", docPages) }
+            { this.getLeftSection("Examples", examplePages) }
           </div>
           <div
             style={{
