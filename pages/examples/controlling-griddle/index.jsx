@@ -7,7 +7,7 @@ import { config } from 'config';
 import fakeData from 'utils/fakeData';
 
 exports.data = {
-  title: 'Controlling Griddle',
+  title: 'Externally Controlled Griddle',
   order: 6
 }
 
