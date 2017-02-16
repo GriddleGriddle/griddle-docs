@@ -1,7 +1,7 @@
 ---
 title: Plugins
 ---
-While many smaller modifications can be handled through [customization](/customization), plugins allows for much larger changes and is how much of the core functionality exists today.
+While many smaller modifications can be handled through [customization](/docs/customization), plugins allows for much larger changes and is how much of the core functionality exists today.
 
 You'll likely interact with plugins in two ways -- adding a plugin and creating a plugin.
 
@@ -32,9 +32,9 @@ export default {
 
 If you need additional configuration or arguments for your plugin, simply export a factory function instead of an object.
 
-## `components : Object`
+## components `Object`
 
-If you've written any customized components for Griddle, this will feel very familiar.
+If you've written any customized components for Griddle, the process will be very familiar.
 
 In the components object, you can overwrite, enhance, or create brand new components for use with Griddle.
 
@@ -80,7 +80,7 @@ components: {
 ...
 ```
 
-## `reducer : Object`
+## reducer `Object`
 
 When adding functionality to Griddle, you'll likely need to response to actions and update the application state. This can easily be done by adding action handling functions to your `reducer` object.
 
@@ -101,6 +101,8 @@ ACTION_NAME(state, action) {
 
 Sometimes, you'll need to respond to actions before or after base or plugin reducer functions have modified the state. To do this, simply add the `_BEFORE` or `_AFTER` suffix to your action handler function.
 
+For more information on pre/post hooks and how state makes its way through reducers, see the [Architecture](/docs/architecture/) documentation.
+
 ```
 ACTION_NAME_BEFORE(state, action) {
   return state;
@@ -111,7 +113,7 @@ ACTION_NAME_AFTER(state, action) {
 }
 ```
 
-## `initialState : Object`
+## initialState `Object`
 
 If your plugin needs to keep track of additional application state, you'll want to provide an initial state for use during initialization.
 
@@ -130,7 +132,7 @@ Example initial state:
 }
 ```
 
-## `selectors : Object`
+## selectors `Object`
 
 Griddle uses [Reselect](https://github.com/reactjs/reselect) to facilitate efficient and consistent access to application state value from our components.
 
