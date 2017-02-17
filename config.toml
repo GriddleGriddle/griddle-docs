@@ -13,4 +13,5 @@ docPages = [
 examplePages = [
   "/examples/controlling-griddle/",
   "/examples/asList/",
+    "/examples/asMap/",
 ]
