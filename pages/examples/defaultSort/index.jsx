@@ -13,6 +13,21 @@ exports.data = {
 }
 
 const intro = `
+To supply a default sort in Griddle we need to define a \`sortProperties\` prop and pass into Griddle:
+
+\`\`\`
+const sortProperties = [
+  { id: 'name', sortAscending: true }
+];
+
+...
+
+<Griddle
+  data={fakeData} 
+  plugins={[plugins.LocalPlugin]}
+  sortProperties={sortProperties}
+/>
+\`\`\`
 `;
 
 export default class extends Component {

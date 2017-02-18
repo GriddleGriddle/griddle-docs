@@ -15,4 +15,5 @@ examplePages = [
   "/examples/asList/",
   "/examples/asMap/",
   "/examples/defaultSort/",
+  "/examples/nestedData/",
 ]
