@@ -152,6 +152,46 @@ The default Griddle plugins are as follows:
 * **CellContainer**: The container component that connects to the redux store (through selectors) and context to obtain data that the `Cell` view component needs. Expected props are:
   *  *griddleKey*: The row key automatically provided by Griddle for the given row record
   *  *columnId*: The id of the column
+* **Filter**: The component responsible for filtering data from the UI. Expected prop(s):
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+  *  *setFilter*: The event that should fire when changing the filter text
+* **FilterContainer**: The container component responsible for wiring methods for the Filter view component to interact with.
+* **Layout**: A component that defines the overall layout for Griddle. For example, by default the Griddle layout is setup so that the Filter and Settings components are above the Table and Pagination is under the Table. This can all be changed with the `Layout` component. [See more on this in the Customization section](/docs/customization/). Expected prop(s):
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+  *  *Table*: The table component to use in Griddle
+  *  *Pagination*: The pagination component to use in Griddle
+  *  *Filter*: The filter component to use in Griddle
+  *  *SettingsWrapper*: The default settings wrapper to use in Griddle
+* **LayoutContainer**: The component that connects to context to get the components that the Layout component needs to know about 
+* **NextButton**: The component that is used to obtain the next page of data. Expected prop(s):
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+  *  *hasNext*: Whether or not there is more data to display.
+  *  *onClick*: The event that fires when the NextButton is clicked
+* **NextButtonContainer**: The container component that is responsible for obtaining whether or not there is more data to display from the store. The NextButtonContainer wraps a nextButton with this data
+* **NoResults**: The component that displays when there are no results. 
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+* **NoResultsContainer**: The container component that is responisble for obtaining style props for the NoResults component.
+* **PageDropdown**: The dropdown component that is used for displaying active page and allows for jumping to another page by page number. Expected prop(s):
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+  *  *maxPages*: The max number of pages available
+  *  *currentPage*: The page of data that is currently displayed.
+  *  *setPage*: The event that is fired when a specific page index is chosen
+* **PageDropdownContainer**: The container responsible for obtaining pagination information from the store and wiring up actions to be passed as props to PageDropdown..
+* **Pagination**: The component that wraps PreviousButton, NextButton, and PageDropdown. Expected prop(s)
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+* **PaginationContainer**: The component that is responsible for interacting with Redux store and outside actions for `Pagination`.
+* **PreviousButton**: The component that is used to obtain a previous page of data. Expected prop(s):
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+  *  *hasPrevious*: Whether or not there is a previous page of data to display.
+  *  *onClick*: The event that fires when the PreviousButton is clicked
+* **PreviousButtonContainer**: The container component that is responsible for obtaining whether or not there is a previous page of data to display from the store.
 * **Row**: The component that defines a Row in Griddle. Expected Props are:
   *  *className*: The className to apply to this component
   *  *style*: The style to apply to this component
@@ -160,11 +200,32 @@ The default Griddle plugins are as follows:
   *  *Cell*: The Cell component to render
 * **RowContainer**: The component that connects to the redux store and context to get the list of visible columns and obtain other data that the `Row` view component needs. Expected prop(s) are:
   *  *griddleKey*: The row key automatically provided by Griddle for the given row record.
+* **SettingsToggle**: The component that is responsible for toggling the visible state of `Settings` component. Expected prop(s):
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+  *  *onClick*: The event that should fire when clicking the show/hide settings button
+  *  *text*: The text that should display in the button
+* **SettingsToggleContainer**: The component that is responsible for wiring up actionCreators/other methods and obtaining data for the `SettingsToggle` component.
+* **SettingsWrapper**: The component that wraps both the `SettingsToggle` and `Settings` components. 
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+  *  *isEnabled*: Should any settings components (e.g. `SettingsToggle` / `Settings` ) be displayed
+  *  *isVisible*: Should the `Settings` component be displayed currently
+  *  *SettingsToggle*: The `SettingsToggle` component to be rendered
+  *  *Settings*: The `Settings` component to be renered
+* **SettingsWrapperContainer**: The container component that is responsible for interacting with the context and store to pass props to the `SettingsWrapper` component
+* **Settings**: The component responsible for rendering the `Settings` that Griddle uses. `Settings` consists of a series of `SettingsComponents` defined by core Griddle and plugins (more documentation is coming on how to setup `SettingsComponents`)
+  *  *className*: The className to apply to this component
+  *  *style*: The style to apply to this component
+  *  *settingsComponents*: Array of components to display inside `Settings`
+* **SettingsContainer**: Component responsible for interacting with context / store to obtain props to pass into the `Settings` component
 * **Table**: The view component responsible for rendering the `table` tag and its children. Expected prop(s) are:
   *  *className*: The className to apply to this component
   *  *style*: The style to apply to this component
+  *  *visibleRows*: The number of visible rows
   *  *TableHeading*: The TableHeading component to render
   *  *TableBody*: The table body component to render
+  *  *NoResults*: The no results component that will be rendered if there are no results
 * **TableContainer**: The component that connects to the redux store and context to get the data that the `Table` view component needs
 * **TableBody**: The component that defines the `tbody` element for use in the datagrid. Expected prop(s) are:
   *  *className*: The className to apply to this component
@@ -188,61 +249,6 @@ The default Griddle plugins are as follows:
   *  *onMouseEnter*: The event that will fire when the mouse hovers over the cell
   *  *onMouseLeave*: The event that will fire when the mouse leaves the component
 * **TableHeadingCellContainer**: The component that is responsible for connecting to the Redux store and obtaining the data that the TableHeadingCell component needs.
-* **Layout**: A component that defines the overall layout for Griddle. For example, by default the Griddle layout is setup so that the Filter and Settings components are above the Table and Pagination is under the Table. This can all be changed with the `Layout` component. [See more on this in the Customization section](/docs/customization/). Expected prop(s):
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-  *  *Table*: The table component to use in Griddle
-  *  *Pagination*: The pagination component to use in Griddle
-  *  *Filter*: The filter component to use in Griddle
-  *  *SettingsWrapper*: The default settings wrapper to use in Griddle
-* **LayoutContainer**: The component that connects to context to get the components that the Layout component needs to know about 
-* **NextButton**: The component that is used to obtain the next page of data. Expected prop(s):
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-  *  *hasNext*: Whether or not there is more data to display.
-  *  *onClick*: The event that fires when the NextButton is clicked
-* **NextButtonContainer**: The container component that is responsible for obtaining whether or not there is more data to display from the store. The NextButtonContainer wraps a nextButton with this data
-* **PageDropdown**: The dropdown component that is used for displaying active page and allows for jumping to another page by page number. Expected prop(s):
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-  *  *maxPages*: The max number of pages available
-  *  *currentPage*: The page of data that is currently displayed.
-  *  *setPage*: The event that is fired when a specific page index is chosen
-* **PageDropdownContainer**: The container responsible for obtaining pagination information from the store and wiring up actions to be passed as props to PageDropdown..
-* **Pagination**: The component that wraps PreviousButton, NextButton, and PageDropdown. Expected prop(s)
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-* **PaginationContainer**: The component that is responsible for interacting with Redux store and outside actions for `Pagination`.
-* **PreviousButton**: The component that is used to obtain a previous page of data. Expected prop(s):
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-  *  *hasPrevious*: Whether or not there is a previous page of data to display.
-  *  *onClick*: The event that fires when the PreviousButton is clicked
-* **PreviousButtonContainer**: The container component that is responsible for obtaining whether or not there is a previous page of data to display from the store.
-* **Filter**: The component responsible for filtering data from the UI. Expected prop(s):
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-  *  *setFilter*: The event that should fire when changing the filter text
-* **FilterContainer**: The container component responsible for wiring methods for the Filter view component to interact with.
-* **SettingsToggle**: The component that is responsible for toggling the visible state of `Settings` component. Expected prop(s):
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-  *  *onClick*: The event that should fire when clicking the show/hide settings button
-  *  *text*: The text that should display in the button
-* **SettingsToggleContainer**: The component that is responsible for wiring up actionCreators/other methods and obtaining data for the `SettingsToggle` component.
-* **SettingsWrapper**: The component that wraps both the `SettingsToggle` and `Settings` components. 
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-  *  *isEnabled*: Should any settings components (e.g. `SettingsToggle` / `Settings` ) be displayed
-  *  *isVisible*: Should the `Settings` component be displayed currently
-  *  *SettingsToggle*: The `SettingsToggle` component to be rendered
-  *  *Settings*: The `Settings` component to be renered
-* **SettingsWrapperContainer**: The container component that is responsible for interacting with the context and store to pass props to the `SettingsWrapper` component
-* **Settings**: The component responsible for rendering the `Settings` that Griddle uses. `Settings` consists of a series of `SettingsComponents` defined by core Griddle and plugins (more documentation is coming on how to setup `SettingsComponents`)
-  *  *className*: The className to apply to this component
-  *  *style*: The style to apply to this component
-  *  *settingsComponents*: Array of components to display inside `Settings`
-* **SettingsContainer**: Component responsible for interacting with context / store to obtain props to pass into the `Settings` component
 
 [See the customization page](/docs/customization/) for more information on how to override components in Griddle.
 
