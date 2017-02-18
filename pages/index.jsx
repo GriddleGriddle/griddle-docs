@@ -4,6 +4,8 @@ import Markdown from '../components/Markdown';
 import Griddle, { RowDefinition, ColumnDefiniton, plugins } from 'griddle-react';
 import fakeData from 'utils/fakeData';
 
+import GriddleMap from 'components/GriddleMap';
+import GriddleList from 'components/GriddleList';
 
 const reimagined = `
   ## Reimagined with customization in mind ##
@@ -20,13 +22,18 @@ const pluginSection = `
 const whatsNew = `
   ## What's new ##
 
-  1. [New module architecture]()
-  1. [First class plugin support]()
-  1. [Customize just about anything]()
+  1. [New module architecture](/docs/architecture/)
+  1. [First class plugin support](/docs/plugins/)
+  1. [Customize just about anything](/docs/customization/)
 `
 
-const gettingStarted = `
-  ## Getting started ##
+const lists = `
+  ## Griddle is not just a data grid ##
+
+  By default, Griddle is a datagrid -- however, it's a bit more than a datagrid. Through its customizable and pluggable architecture, Griddle turns into a component for rendering lists of data.
+`
+const quickStart = `
+  ## Quick start ##
 
   Include Griddle in your project:
 
@@ -56,8 +63,15 @@ const gettingStarted = `
     <Griddle data={data} />
   \`\`\`
 
-  We're only scratching the surface of what we can do with Griddle. [Lets learn some more!]()
+  We're only scratching the surface of what we can do with Griddle.
 `
+const moreMap = `
+  [](/examples/asMap/)
+`
+
+const Center = ({children}) => (
+  <div style={{width: '100%', textAlign: 'center' }}>{children}</div>
+);
 
 export default class extends React.Component {
   render() {
@@ -85,15 +99,17 @@ export default class extends React.Component {
 
   return (
     <div>
-      <Markdown>
-       {`# Griddle is an ultra customizable datagrid component for React. #
-        `}
-      </Markdown>
+      <Center>
+        <h1 className="banner">Griddle is an ultra customizable datagrid component for React.</h1>
+      </Center>
       <Griddle
         data={fakeData}
         plugins={[plugins.LocalPlugin]}
         components={{
           Layout
+        }}
+        pageProperties={{
+          pageSize: 5
         }}
         styleConfig={{
           styles: {
@@ -104,7 +120,29 @@ export default class extends React.Component {
       <Markdown text={reimagined} />
       <Markdown text={pluginSection} />
       <Markdown text={whatsNew} />
-      <Markdown text={gettingStarted} />
+      <Markdown text={lists} />
+      <hr />
+      <div>
+        <h3 style={{margin: 0 }}>This is Griddle</h3>
+        <small>(you can still filter using Griddle's filter component and state management -- e.g. search for 'simpson')</small>
+      </div>
+      <GriddleMap width={920} height={400} />
+      <Center>
+        <a className='styled' href="/examples/asMap/">Learn how to configure Griddle to render as a map</a>
+      </Center>
+      <hr />
+      <div>
+        <h3 style={{margin: 0 }}>This is too!</h3>
+      </div>
+      <GriddleList />
+      <Center>
+        <a className='styled' href="/examples/asList/">Learn how to configure Griddle to render as a list</a>
+      </Center>
+
+      <Markdown text={quickStart} />
+      <Center>
+        <a className='styled' href="/docs">Continue to documentation</a>
+      </Center>
     </div>
   )
   }

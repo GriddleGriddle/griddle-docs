@@ -102,12 +102,11 @@ const customization2 = `
   These customization options are pretty rudimentary but CustomComponents can do way way more than what we're doing here. These components can \`connect\` into Griddle's state and get a lot more information or hook into outside stores/API's etc. Even with all this, we've only scratched the surface of what we can do to customize Griddle. In the [customization section](/customization), we will learn more about how much customization we can apply to Griddle (spoilers: its a lot).
 `
 
+const customLocationComponent = ({value}) => <a href={`https://www.google.com/maps/place/${value}/>`} target="_blank">{value}</a>
 
 const SomeReactCode = React.createClass({
-
   render () {
     const page = this.props.route.page
-    const customLocationComponent = ({value}) => <a href={`https://www.google.com/maps/place/${value}/>`} target="_blank">{value}</a>
 
     return (
       <DocumentTitle title={`${page.data.title} | ${config.siteTitle}`}>
