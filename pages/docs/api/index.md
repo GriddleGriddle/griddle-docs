@@ -278,6 +278,10 @@ The following properties are available on `ColumnDefinition` components.
 * **id**: The id of the column that this definition applies to. For example, if `data` had an array of objects that looked like `{ id: 1, name: 'Mayer Leonard', state: 'Ohio' }`, an id of `name` would denote that the current `ColumnDefinition` corresponds to the `name` prop in the data.
 * **isMetadata**: Describes whether or not this column should be treated as metadata.
 * **order**: The order in which the column should be displayed. If not defined, Griddle will use the order that the columns were received. If there is a mix of ordered an non-ordered columns, Griddle will use ordered columns first, followed by unordered.
+* **sortMethod**: The sort method that the column should use when data is sorted on the given column. The parameters for this sort method are as follows:
+  *  **data**: The data to sort
+  *  **column**: The column information
+  *  **sortAscending**: Determines whether the column should be sorted ascending or descending
 * **title**: The display text for the column heading. For example, if the data property is `name` and you wanted to display it as `Fullname` -- this could be achieved through this, `title` property.
 * **width**: The width of the column
 
