@@ -583,6 +583,8 @@ const fakeData = [
   }
 ];
 
+const mapKey = 'AIzaSyC1QUC026M2YA9PhZTsJeUpaOO6-dP5rjY';
+
 class MarkerBlip extends Component {
   constructor(props) {
     super(props);
@@ -635,6 +637,9 @@ const TableBody = connect((state, props) => ({
   visibleData: plugins.LocalPlugin.selectors.visibleDataSelector(state)
 }))(({ rowIds, Row, visibleData }) => (
   <GoogleMapReact
+    bootstrapURLKeys={{
+      key: mapKey,
+    }}
     defaultCenter={{lat: 42.28, lng: -83.74}}
     defaultZoom={4}
   >
