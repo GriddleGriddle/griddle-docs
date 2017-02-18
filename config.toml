@@ -4,14 +4,14 @@ linkPrefix = "/gatsby-starter-documentation"
 docPages = [
   "/docs/",
   "/docs/architecture/",
-  "/docs/api/",
   "/docs/customization/",
+  "/docs/styles/",
   "/docs/plugins/",
-  "/docs/styles/"
+  "/docs/api/",
 ]
 
 examplePages = [
   "/examples/controlling-griddle/",
   "/examples/asList/",
-    "/examples/asMap/",
+  "/examples/asMap/",
 ]
