@@ -37,7 +37,7 @@ const quickStart = `
 
   Include Griddle in your project:
 
-  \`npm install --save griddle-react@beta\`
+  \`npm install --save griddle-react\`
 
   Add Griddle to your project:
 
@@ -45,6 +45,7 @@ const quickStart = `
   import React from 'react';
   import Griddle from 'griddle-react';
   \`\`\`
+  (or \`var Griddle = require('griddle-react').default;\` if using commonjs. [See here for example usage](https://github.com/ryanlanciaux/griddle-gulp-test/blob/master/scripts/testComponent.js#L3))
 
   Define an array of data:
 
@@ -143,6 +144,11 @@ export default class extends React.Component {
       <Center>
         <a className='styled' href="/docs/">Continue to documentation</a>
       </Center>
+      <hr />
+
+      <h3 style={{ marginBottom: 0 }}>Looking for version 0.x docs?</h3>
+      <a className='styled' href='https://griddlegriddle.github.io/v0-docs/'>Version 0.x docs available here</a>
+
     </div>
   )
   }

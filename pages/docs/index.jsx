@@ -23,6 +23,7 @@ const gettingStarted = `
   import React from 'react';
   import Griddle from 'griddle-react';
   \`\`\`
+  (or \`var Griddle = require('griddle-react').default;\` if using commonjs. [See here for example usage](https://github.com/ryanlanciaux/griddle-gulp-test/blob/master/scripts/testComponent.js#L3))
 
   Define an array of data (ours looks a little like this):
 
