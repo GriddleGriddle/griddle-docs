@@ -18,8 +18,8 @@ const start = `
   With Griddle, we wanted to create a datagrid that is useful out of the box but doesn't get in your way if you need something different.
   To that end, just about everything in Griddle is able to be composed / overriden through customization options in the API.
 
-  (Side note: While similar to customization, [styling is in its own section](/styles/))
-  
+  (Side note: While similar to customization, [styling is in its own section](/Griddle/docs/styles/))
+
   ## Custom columns ##
 
   In Griddle we can custom columns or column headings through the \`ColumnDefinitions\` object. Lets say we want to add a custom column
@@ -43,7 +43,7 @@ const componentCustomization = `
   ## Component Customization ##
 
   Griddle exists as a series of container and view components. Container components are specifically responsible for getting data from
-  griddle's store, where as view components are responsible for displaying data ([see architecture](/architecture/) for more on this).
+  griddle's store, where as view components are responsible for displaying data ([see architecture](/Griddle/docs/architecture/) for more on this).
   If we wanted to change the Filter component to be a dropdown to look for only a couple of specified option we could do so through the
   customizing Griddle's components.
 
@@ -180,7 +180,7 @@ const layout = `
 
 const continuedAtPlugins = `
   While you can customize just about anything in Griddle using these mechanisms, a more powerful
-  option exists for creating reusable customizations through plugins. [Learn more about plugins](/plugins/)
+  option exists for creating reusable customizations through plugins. [Learn more about plugins](/Griddle/docs/plugins/)
 `
 
 const NewLayout = ({ Table, Pagination, Filter, SettingsWrapper, style, className }) => (

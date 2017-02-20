@@ -91,4 +91,4 @@ individual selectors to obtain the data that they need.
 This architecture allows overriding any part of this system while keeping everything else intact. For example, a plugin could
 have a series of its own container components and selectors and the view components and reducers would work with out any modification.
 In fact, this is exactly what we are doing with Griddle for the local data plugin (the plugin that says you want to maintain all your
-data locally in the browser). [See more about this in the plugins section](/plugins)
+data locally in the browser). [See more about this in the plugins section](/Griddle/docs/plugins)

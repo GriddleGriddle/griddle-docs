@@ -32,9 +32,9 @@ const data = [
 ]
 ```
 
-## Plugins ## 
+## Plugins ##
 
-The `plugins` prop is an array of Griddle plugins. Griddle plugins must follow the structure described in [the plugins section](/plugins/).
+The `plugins` prop is an array of Griddle plugins. Griddle plugins must follow the structure described in [the plugins section](Griddle/docs/plugins/).
 Griddle plugins are processed in the order they are defined in the array.'
 
 ```
@@ -74,9 +74,9 @@ The `sortProperties` prop defines the default sort options for Griddle. The `sor
 
 ## Style Config ##
 
-The `styleConfig` prop defines the styling options for Griddle. This is covered in more detail in [the styles section of the docs](/docs/styles/).
+The `styleConfig` prop defines the styling options for Griddle. This is covered in more detail in [the styles section of the docs](/Griddle/docs/styles/).
 
-The `styleConfig` has the shape `{ icons, classNames, styles}` and by default looks like: 
+The `styleConfig` has the shape `{ icons, classNames, styles}` and by default looks like:
 
 ```
 {
@@ -111,7 +111,7 @@ The `styleConfig` has the shape `{ icons, classNames, styles}` and by default lo
 };
 ```
 
-[See the styles section](/docs/styles/) for more information on this.
+[See the styles section](/Griddle/docs/styles/) for more information on this.
 
 
 ## Page Properties ##
@@ -135,12 +135,12 @@ The pageProperties object has the following properties:
 ## Components ##
 
 Any component used in Griddle can have a user-supplied component that will be used instead. This prop defines the components that Griddle should use in place of the defaults.
-Components passed in on the `components` prop will override both Griddle defaults and plugins. Examples of providing component overrides are available in [the customization page](/docs/customization/).
+Components passed in on the `components` prop will override both Griddle defaults and plugins. Examples of providing component overrides are available in [the customization page](/Griddle/docs/customization/).
 
 All components used in Griddle exist as a `container` and a `view` component. Views are entirely responsible for rendering data whereas `container` components interact with the store state and context.
-Griddle uses its own Redux store for managing state and all of the components live in the context (this is a big part of what makes plugins work). 
+Griddle uses its own Redux store for managing state and all of the components live in the context (this is a big part of what makes plugins work).
 
-The default Griddle plugins are as follows: 
+The default Griddle plugins are as follows:
 
 * **Cell**: The Component that defines an individual Cell in Griddle. Expected props are:
   *  *className*: The className to apply to this component
@@ -157,21 +157,21 @@ The default Griddle plugins are as follows:
   *  *style*: The style to apply to this component
   *  *setFilter*: The event that should fire when changing the filter text
 * **FilterContainer**: The container component responsible for wiring methods for the Filter view component to interact with.
-* **Layout**: A component that defines the overall layout for Griddle. For example, by default the Griddle layout is setup so that the Filter and Settings components are above the Table and Pagination is under the Table. This can all be changed with the `Layout` component. [See more on this in the Customization section](/docs/customization/). Expected prop(s):
+* **Layout**: A component that defines the overall layout for Griddle. For example, by default the Griddle layout is setup so that the Filter and Settings components are above the Table and Pagination is under the Table. This can all be changed with the `Layout` component. [See more on this in the Customization section](/Griddle/docs/customization/). Expected prop(s):
   *  *className*: The className to apply to this component
   *  *style*: The style to apply to this component
   *  *Table*: The table component to use in Griddle
   *  *Pagination*: The pagination component to use in Griddle
   *  *Filter*: The filter component to use in Griddle
   *  *SettingsWrapper*: The default settings wrapper to use in Griddle
-* **LayoutContainer**: The component that connects to context to get the components that the Layout component needs to know about 
+* **LayoutContainer**: The component that connects to context to get the components that the Layout component needs to know about
 * **NextButton**: The component that is used to obtain the next page of data. Expected prop(s):
   *  *className*: The className to apply to this component
   *  *style*: The style to apply to this component
   *  *hasNext*: Whether or not there is more data to display.
   *  *onClick*: The event that fires when the NextButton is clicked
 * **NextButtonContainer**: The container component that is responsible for obtaining whether or not there is more data to display from the store. The NextButtonContainer wraps a nextButton with this data
-* **NoResults**: The component that displays when there are no results. 
+* **NoResults**: The component that displays when there are no results.
   *  *className*: The className to apply to this component
   *  *style*: The style to apply to this component
 * **NoResultsContainer**: The container component that is responisble for obtaining style props for the NoResults component.
@@ -206,7 +206,7 @@ The default Griddle plugins are as follows:
   *  *onClick*: The event that should fire when clicking the show/hide settings button
   *  *text*: The text that should display in the button
 * **SettingsToggleContainer**: The component that is responsible for wiring up actionCreators/other methods and obtaining data for the `SettingsToggle` component.
-* **SettingsWrapper**: The component that wraps both the `SettingsToggle` and `Settings` components. 
+* **SettingsWrapper**: The component that wraps both the `SettingsToggle` and `Settings` components.
   *  *className*: The className to apply to this component
   *  *style*: The style to apply to this component
   *  *isEnabled*: Should any settings components (e.g. `SettingsToggle` / `Settings` ) be displayed
@@ -250,7 +250,7 @@ The default Griddle plugins are as follows:
   *  *onMouseLeave*: The event that will fire when the mouse leaves the component
 * **TableHeadingCellContainer**: The component that is responsible for connecting to the Redux store and obtaining the data that the TableHeadingCell component needs.
 
-[See the customization page](/docs/customization/) for more information on how to override components in Griddle.
+[See the customization page](/Griddle/docs/customization/) for more information on how to override components in Griddle.
 
 ## RowDefinition ##
 
@@ -278,8 +278,8 @@ Right now this is mostly a placeholder for ColumnDefinitions but will have more 
 The following properties are available on `ColumnDefinition` components.
 
 * **cssClassName**: The css class name to apply to this column.
-* **customComponent**: A component that should be used in the cell. [See the customization page](/customization/) for more information on this.
-* **customHeadingComponent**: A component that should be used in the CellHeading. [See the customization page](/customization/) for more information on this.
+* **customComponent**: A component that should be used in the cell. [See the customization page](/Griddle/docs/customization/) for more information on this.
+* **customHeadingComponent**: A component that should be used in the CellHeading. [See the customization page](/Griddle/docs/customization/) for more information on this.
 * **headerCssClassName**: The css class name to apply to the header for the column
 * **id**: The id of the column that this definition applies to. For example, if `data` had an array of objects that looked like `{ id: 1, name: 'Mayer Leonard', state: 'Ohio' }`, an id of `name` would denote that the current `ColumnDefinition` corresponds to the `name` prop in the data.
 * **isMetadata**: Describes whether or not this column should be treated as metadata.
@@ -290,5 +290,3 @@ The following properties are available on `ColumnDefinition` components.
   *  **sortAscending**: Determines whether the column should be sorted ascending or descending
 * **title**: The display text for the column heading. For example, if the data property is `name` and you wanted to display it as `Fullname` -- this could be achieved through this, `title` property.
 * **width**: The width of the column
-
- 

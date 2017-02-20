@@ -22,9 +22,9 @@ const pluginSection = `
 const whatsNew = `
   ## What's new ##
 
-  1. [New module architecture](/docs/architecture/)
-  1. [First class plugin support](/docs/plugins/)
-  1. [Customize just about anything](/docs/customization/)
+  1. [New module architecture](docs/architecture/)
+  1. [First class plugin support](docs/plugins/)
+  1. [Customize just about anything](docs/customization/)
 `
 
 const lists = `
@@ -66,10 +66,6 @@ const quickStart = `
 
   We're only scratching the surface of what we can do with Griddle.
 `
-const moreMap = `
-  [](/examples/asMap/)
-`
-
 const Center = ({children}) => (
   <div style={{width: '100%', textAlign: 'center' }}>{children}</div>
 );
@@ -80,7 +76,7 @@ export default class extends React.Component {
   const Layout = ({Table, Pagination, Filter, SettingsWrapper, className, style}) => (
     <div className={className} style={style}>
       <div style={{ float: 'left', width: '50%' }}>
-        <Filter /> 
+        <Filter />
       </div>
       <Pagination />
       <Table />
@@ -129,7 +125,7 @@ export default class extends React.Component {
       </div>
       <GriddleMap width={920} height={400} />
       <Center>
-        <a className='styled' href="/examples/asMap/">Learn how to configure Griddle to render as a map</a>
+        <a className='styled' href="/Griddle/examples/asMap/">Learn how to configure Griddle to render as a map</a>
       </Center>
       <hr />
       <div>
@@ -137,12 +133,12 @@ export default class extends React.Component {
       </div>
       <GriddleList />
       <Center>
-        <a className='styled' href="/examples/asList/">Learn how to configure Griddle to render as a list</a>
+        <a className='styled' href="/Griddle/examples/asList/">Learn how to configure Griddle to render as a list</a>
       </Center>
 
       <Markdown text={quickStart} />
       <Center>
-        <a className='styled' href="/docs/">Continue to documentation</a>
+        <a className='styled' href="/Griddle/docs/">Continue to documentation</a>
       </Center>
       <hr />
 
