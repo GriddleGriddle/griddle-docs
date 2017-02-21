@@ -126,6 +126,15 @@ class APITable extends Component {
 \`\`\`
 `
 
+const fakeLoadDataFromAPI = (currentPage, pageSize, callback) => {
+  setTimeout(() => {
+    callback({
+      data: fakeData.slice((currentPage - 1) * pageSize, currentPage * pageSize),
+      currentPage,
+    });
+  }, 500);
+}
+
 class APITable extends Component {
   constructor(props, context) {
     super(props, context);
