@@ -138,7 +138,7 @@ export default class extends React.Component {
 
       <Markdown text={quickStart} />
       <Center>
-        <a className='styled' href="/Griddle/docs/">Continue to documentation</a>
+        <a className='styled' href="docs/">Continue to documentation</a>
       </Center>
       <hr />
 

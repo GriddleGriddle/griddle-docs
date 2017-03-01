@@ -1,7 +1,7 @@
 ---
 title: Plugins
 ---
-While many smaller modifications can be handled through [customization](/Griddle/docs/customization), plugins allows for much larger changes and is how much of the core functionality exists today.
+While many smaller modifications can be handled through [customization](../customization), plugins allows for much larger changes and is how much of the core functionality exists today.
 
 You'll likely interact with plugins in two ways -- adding a plugin and creating a plugin.
 
@@ -101,7 +101,7 @@ ACTION_NAME(state, action) {
 
 Sometimes, you'll need to respond to actions before or after base or plugin reducer functions have modified the state. To do this, simply add the `_BEFORE` or `_AFTER` suffix to your action handler function.
 
-For more information on pre/post hooks and how state makes its way through reducers, see the [Architecture](/Griddle/docs/architecture/) documentation.
+For more information on pre/post hooks and how state makes its way through reducers, see the [Architecture](../architecture/) documentation.
 
 ```
 ACTION_NAME_BEFORE(state, action) {
