@@ -7,6 +7,7 @@ docPages = [
   "/docs/customization/",
   "/docs/styles/",
   "/docs/plugins/",
+  "/docs/pluginList/",
   "/docs/api/",
 ]
 
