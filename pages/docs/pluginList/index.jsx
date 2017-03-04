@@ -8,7 +8,7 @@ import { config } from 'config';
 import fakeData from 'utils/fakeData';
 
 exports.data = {
-  title: 'Customization',
+  title: 'Plugin List',
   order: 5
 }
 
