@@ -31,8 +31,8 @@ const start = `
 
     <Griddle data={fakeData}>
       <RowDefinition>
-        <ColumnDefinition id="name" customComponent={CustomColumn} />>
-        <ColumnDefinition id="state" customHeading={CustomHeading}/>
+        <ColumnDefinition id="name" customComponent={CustomColumn} />
+        <ColumnDefinition id="state" customHeading={CustomHeading} />
         <ColumnDefinition id="company" />
       </RowDefinition>
     </Griddle>
