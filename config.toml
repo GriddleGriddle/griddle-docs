@@ -17,4 +17,5 @@ examplePages = [
   "/examples/asMap/",
   "/examples/defaultSort/",
   "/examples/nestedData/",
+  "/examples/getDataFromRowIntoCell/",
 ]
