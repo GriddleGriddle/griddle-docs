@@ -282,6 +282,7 @@ The following properties are available on `ColumnDefinition` components.
 * **customHeadingComponent**: A component that should be used in the CellHeading. [See the customization page](../customization/) for more information on this.
 * **headerCssClassName**: The css class name to apply to the header for the column
 * **id**: The id of the column that this definition applies to. For example, if `data` had an array of objects that looked like `{ id: 1, name: 'Mayer Leonard', state: 'Ohio' }`, an id of `name` would denote that the current `ColumnDefinition` corresponds to the `name` prop in the data.
+* **visible**: Describes whether the column is displayed or hidden when the table renders. The column name will be shown and selectable under Settings.
 * **isMetadata**: Describes whether or not this column should be treated as metadata. Metadata is not rendered as a column.
 * **order**: The order in which the column should be displayed. If not defined, Griddle will use the order that the columns were received. If there is a mix of ordered an non-ordered columns, Griddle will use ordered columns first, followed by unordered.
 * **sortMethod**: The sort method that the column should use when data is sorted on the given column. The parameters for this sort method are as follows:
