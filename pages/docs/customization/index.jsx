@@ -26,13 +26,13 @@ const start = `
   where we make the text blue for name but make the heading text red on another column -- We would achieve this with CustomColumn / CustomColumnHeadings.
 
   \`\`\`
-    const CustomColumn = ({value}) => <span style={{ color: #0000AA }}>{value}</span>;
-    const CustomHeading = ({value}) => <span style={{ color: #AA0000 }}>{value}</span>;
+    const CustomColumn = ({value}) => <span style={{ color: '#0000AA' }}>{value}</span>;
+    const CustomHeading = ({title}) => <span style={{ color: '#AA0000' }}>{title}</span>;
 
     <Griddle data={fakeData}>
       <RowDefinition>
         <ColumnDefinition id="name" customComponent={CustomColumn} />
-        <ColumnDefinition id="state" customHeading={CustomHeading} />
+        <ColumnDefinition id="state" customHeadingComponent={CustomHeading} />
         <ColumnDefinition id="company" />
       </RowDefinition>
     </Griddle>
