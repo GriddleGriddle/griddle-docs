@@ -144,7 +144,7 @@ const markdown = `
   \`\`\`
     <Griddle
       data={fakeData}
-      plugings={[plugins.LocalPlugin]}
+      plugins={[plugins.LocalPlugin]}
       pageProperties={{
         pageSize: 50000
       }}
