@@ -25,7 +25,7 @@ const positionDescription = `
 `
 
 const positionInstallation = `
-  This plugin currently ships with Griddle. Running \`npm install griddle-react --save\` installs the position plugin as well. This plugin can be included by \`import Griddle, { plugins }\` and then referencing \`plugins.positionPlugin\`.
+  This plugin currently ships with Griddle. Running \`npm install griddle-react --save\` installs the position plugin as well. This plugin can be included by \`import Griddle, { plugins }\` and then referencing \`plugins.PositionPlugin\`.
 `
 
 const pluginList = [
