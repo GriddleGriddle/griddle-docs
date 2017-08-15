@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { connect } from 'react-redux';
 
-import Griddle, { plugins } from 'griddle-react';
+import Griddle, { plugins, RowDefinition } from 'griddle-react';
 
 const fakeData = [
   {
@@ -635,7 +635,7 @@ class MarkerBlip extends Component {
 
 const TableBody = connect((state, props) => ({
   visibleData: plugins.LocalPlugin.selectors.visibleDataSelector(state)
-}))(({ rowIds, Row, visibleData }) => (
+}))(({ rowIds, visibleData }) => (
   <GoogleMapReact
     bootstrapURLKeys={{
       key: mapKey,
@@ -643,7 +643,7 @@ const TableBody = connect((state, props) => ({
     defaultCenter={{lat: 42.28, lng: -83.74}}
     defaultZoom={4}
   >
-    { visibleData && visibleData.toJSON().map(r => <Row key={r.name} griddleKey={r.name} lat={r.latitude} lng={r.longitude} {...r} />) }
+    { visibleData && visibleData.toJSON().map(r => <MarkerBlip key={r.name} griddleKey={r.name} lat={r.latitude} lng={r.longitude} {...r} />) }
   </GoogleMapReact>
 ));
 
@@ -685,11 +685,12 @@ export default class extends Component {
           components={{
             TableContainer: CustomTableComponent(width, height),
             TableBody,
-            Row: MarkerBlip,
             SettingsToggle: () => <span />,
             Pagination: () => <span />
           }}
-        />
+        >
+          <RowDefinition rowKey="name" />
+        </Griddle>
       </div>
     );
   }
