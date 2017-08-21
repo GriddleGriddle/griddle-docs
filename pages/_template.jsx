@@ -72,7 +72,7 @@ module.exports = React.createClass({
                   }}
                   href="https://github.com/griddlegriddle/griddle"
                 >
-                  Github
+                  GitHub
                 </a>
                 <Link
                   to={prefixLink('/docs/')}
