@@ -51,9 +51,9 @@ const quickStart = `
 
   \`\`\`
   var data = [
-    { one: 'one', two: 'two', three: 'three' }
-    { one: 'uno', two: 'dos', three: 'tres' }
-    { one: 'ichi', two: 'ni', three: 'san' }
+    { one: 'one', two: 'two', three: 'three' },
+    { one: 'uno', two: 'dos', three: 'tres' },
+    { one: 'ichi', two: 'ni', three: 'san' },
   ];
   \`\`\`
 
