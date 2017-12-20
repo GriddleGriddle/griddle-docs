@@ -43,7 +43,7 @@ const componentCustomization = `
   ## Component Customization ##
 
   Griddle exists as a series of container and view components. Container components are specifically responsible for getting data from
-  griddle's store, where as view components are responsible for displaying data ([see architecture](../architecture/) for more on this).
+  griddle's store, whereas view components are responsible for displaying data ([see architecture](../architecture/) for more on this).
   If we wanted to change the Filter component to be a dropdown to look for only a couple of specified option we could do so through the
   customizing Griddle's components.
 
