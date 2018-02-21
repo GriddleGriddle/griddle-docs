@@ -18,7 +18,7 @@ const start = `
 
   ## Page Properties ##
 
-  The current page, amount of results, as well as how many results should be displayed can be controlled by passing in a \`pageProperty\` property.
+  The current page, amount of results, as well as how many results should be displayed can be controlled by passing in a \`pageProperties\` property.
 
   \`\`\`
     <Griddle
