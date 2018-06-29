@@ -77,7 +77,7 @@ const customization = `
 
   #### Create a custom component for linking from the state column ####
 
-  Griddle has the concept of custom components for columns and column headings. We are going to gloss over this for now but please see [customization](customization) for more on this. All the information we need to know is we will receive a value prop.
+  Griddle has the concept of custom components for columns and column headings. We are going to gloss over this for now but please see [customization](customization/) for more on this. All the information we need to know is we will receive a value prop.
 
   \`\`\`
   const customLocationComponent = ({value}) => <a href={\`https://www.google.com/maps/place/$\{value\}/>\`} target="_blank">{value}</a>
@@ -100,7 +100,7 @@ const customization = `
 
 const customization2 = `
 
-  These customization options are pretty rudimentary but CustomComponents can do way way more than what we're doing here. These components can \`connect\` into Griddle's state and get a lot more information or hook into outside stores/API's etc. Even with all this, we've only scratched the surface of what we can do to customize Griddle. In the [customization section](customization), we will learn more about how much customization we can apply to Griddle (spoilers: its a lot).
+  These customization options are pretty rudimentary but CustomComponents can do way way more than what we're doing here. These components can \`connect\` into Griddle's state and get a lot more information or hook into outside stores/API's etc. Even with all this, we've only scratched the surface of what we can do to customize Griddle. In the [customization section](customization/), we will learn more about how much customization we can apply to Griddle (spoilers: its a lot).
 `
 
 const customLocationComponent = ({value}) => <a href={`https://www.google.com/maps/place/${value}/>`} target="_blank">{value}</a>
