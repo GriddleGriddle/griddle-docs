@@ -70,7 +70,7 @@ See the Position plugin's `TableEnhancer` to see how this is used in a real situ
 
 More often than not, most new components don't need to be added to your plugin's `components` object as they will be imported where they're needed in components that *do* overwrite existing components.
 
-If you do want the expose the ability for other plugins to overwrite / enhance new components you create, simply add them to the `component` property with a distinct name.
+If you do want to expose the ability for other plugins to overwrite / enhance new components you create, simply add them to the `component` property with a distinct name.
 
 ```
 ...
@@ -82,11 +82,11 @@ components: {
 
 ## reducer `Object`
 
-When adding functionality to Griddle, you'll likely need to response to actions and update the application state. This can easily be done by adding action handling functions to your `reducer` object.
+When adding functionality to Griddle, you'll likely need to respond to actions and update the application state. This can easily be done by adding action handling functions to your `reducer` object.
 
 Griddle uses [Redux](http://redux.js.org/) as well as [ImmutableJS](https://facebook.github.io/immutable-js/), so being familiar with these technologies will make things easier.
 
-Additionally, the entirety of Griddles state can be accessed an modified from a Plugin's reducer.
+Additionally, the entirety of Griddles state can be accessed and modified from a Plugin's reducer.
 
 #### Handling an action
 
@@ -119,7 +119,7 @@ If your plugin needs to keep track of additional application state, you'll want 
 
 This object will be merged with the all Griddle and other Plugin's state via `Object.assign`, so you'll want to make sure that state properties are unique to avoid conflicts with other plugins.
 
-Once merged, value will then be converted into an ImmutableJS Map and accessed in your `reducers` and `selectors`.
+Once merged, values will then be converted into an ImmutableJS Map and accessed in your `reducers` and `selectors`.
 
 Example initial state:
 ```

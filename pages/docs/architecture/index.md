@@ -17,7 +17,7 @@ entirely of their props. For more discussion on this mindset [read this post by 
 ![Component Architecture](componentArchitecture.png)
 
 The components are deeply nested but only a minimal amount of props are passed from the top down. Most of the data is obtained through
-the container components connection to the Redux store and passed to the view components as props.
+the container components' connection to the Redux store and passed to the view components as props.
 
 ### reducers ###
 Reducers in Griddle are methods that work against an immutable state object. A standard reducer method should look like:
@@ -89,6 +89,6 @@ individual selectors to obtain the data that they need.
 ## Pluggable Architecture ##
 
 This architecture allows overriding any part of this system while keeping everything else intact. For example, a plugin could
-have a series of its own container components and selectors and the view components and reducers would work with out any modification.
+have a series of its own container components and selectors and the view components and reducers would work without any modification.
 In fact, this is exactly what we are doing with Griddle for the local data plugin (the plugin that says you want to maintain all your
 data locally in the browser). [See more about this in the plugins section](../plugins)
