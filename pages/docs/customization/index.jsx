@@ -2,17 +2,17 @@ import React, { Component, PropTypes } from "react";
 import DocumentTitle from "react-document-title";
 import Markdown from "components/Markdown";
 import Griddle, {
-  plugins,
-  RowDefinition,
-  ColumnDefinition
+    plugins,
+    RowDefinition,
+    ColumnDefinition,
 } from "griddle-react";
 
 import { config } from "config";
 import fakeData from "utils/fakeData";
 
 exports.data = {
-  title: "Customization",
-  order: 5
+    title: "Customization",
+    order: 5,
 };
 
 const start = `
@@ -188,103 +188,106 @@ const continuedAtPlugins = `
 `;
 
 const NewLayout = ({
-  Table,
-  Pagination,
-  Filter,
-  SettingsWrapper,
-  style,
-  className
+    Table,
+    Pagination,
+    Filter,
+    SettingsWrapper,
+    style,
+    className,
 }) => (
-  <div className={className} style={style}>
-    <div style={{ float: "left", width: "50%" }}>
-      <Filter />
+    <div className={className} style={style}>
+        <div style={{ float: "left", width: "50%" }}>
+            <Filter />
+        </div>
+        <Pagination />
+        <Table />
     </div>
-    <Pagination />
-    <Table />
-  </div>
 );
 
 class Filter extends Component {
-  static propTypes = {
-    setFilter: PropTypes.func.isRequired
-  };
+    static propTypes = {
+        setFilter: PropTypes.func.isRequired,
+    };
 
-  onChange = e => {
-    this.props.setFilter(e.target.value);
-  };
+    onChange = e => {
+        this.props.setFilter(e.target.value);
+    };
 
-  render() {
-    return (
-      <select onChange={this.onChange}>
-        <option value="">All</option>
-        <option value="Michigan">Michigan</option>
-        <option value="Ohio">Ohio</option>
-        <option value="Indiana">Indiana</option>
-      </select>
-    );
-  }
+    render() {
+        return (
+            <select onChange={this.onChange}>
+                <option value="">All</option>
+                <option value="Michigan">Michigan</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Indiana">Indiana</option>
+            </select>
+        );
+    }
 }
 
 const CustomColumn = ({ value }) => (
-  <span style={{ color: "#0000AA" }}>{value}</span>
+    <span style={{ color: "#0000AA" }}>{value}</span>
 );
 const CustomHeading = ({ title }) => (
-  <span style={{ color: "#AA0000" }}>{title}</span>
+    <span style={{ color: "#AA0000" }}>{title}</span>
 );
 
 const Customization = React.createClass({
-  render() {
-    const page = this.props.route.page;
+    render() {
+        const page = this.props.route.page;
 
-    return (
-      <DocumentTitle title={`${page.data.title} | ${config.siteTitle}`}>
-        <div>
-          <Markdown text={start} />
+        return (
+            <DocumentTitle title={`${page.data.title} | ${config.siteTitle}`}>
+                <div>
+                    <Markdown text={start} />
 
-          <Griddle data={fakeData} plugins={[plugins.LocalPlugin]}>
-            <RowDefinition>
-              <ColumnDefinition id="name" customComponent={CustomColumn} />
-              <ColumnDefinition
-                id="state"
-                customHeadingComponent={CustomHeading}
-              />
-              <ColumnDefinition id="company" />
-            </RowDefinition>
-          </Griddle>
+                    <Griddle data={fakeData} plugins={[plugins.LocalPlugin]}>
+                        <RowDefinition>
+                            <ColumnDefinition
+                                id="name"
+                                customComponent={CustomColumn}
+                            />
+                            <ColumnDefinition
+                                id="state"
+                                customHeadingComponent={CustomHeading}
+                            />
+                            <ColumnDefinition id="company" />
+                        </RowDefinition>
+                    </Griddle>
 
-          <Markdown text={componentCustomization} />
+                    <Markdown text={componentCustomization} />
 
-          <Griddle
-            data={fakeData}
-            plugins={[plugins.LocalPlugin]}
-            pageProperties={{
-              pageSize: 5
-            }}
-            components={{
-              Filter,
-              SettingsToggle: () => <span />
-            }}
-          />
-          <Markdown text={customization2} />
-          <Markdown text={containerCustomization} />
-          <Markdown text={layout} />
-          <Griddle
-            data={fakeData}
-            plugins={[plugins.LocalPlugin]}
-            components={{
-              Layout: NewLayout
-            }}
-            styleConfig={{
-              styles: {
-                Pagination: { textAlign: "right" }
-              }
-            }}
-          />
-          <Markdown text={continuedAtPlugins} />
-        </div>
-      </DocumentTitle>
-    );
-  }
+                    <Griddle
+                        data={fakeData}
+                        plugins={[plugins.LocalPlugin]}
+                        pageProperties={{
+                            pageSize: 5,
+                        }}
+                        components={{
+                            Filter,
+                            SettingsToggle: () => <span />,
+                        }}
+                    />
+                    <Markdown text={customization2} />
+                    <Markdown text={containerCustomization} />
+                    <Markdown text={layout} />
+                    <Griddle
+                        data={fakeData}
+                        plugins={[plugins.LocalPlugin]}
+                        components={{
+                            Layout: NewLayout,
+                        }}
+                        styleConfig={{
+                            styles: {
+                                Pagination: { textAlign: "right" },
+                            },
+                        }}
+                    />
+                    <Markdown text={continuedAtPlugins} />
+                </div>
+            </DocumentTitle>
+        );
+    },
 });
 
 export default Customization;
