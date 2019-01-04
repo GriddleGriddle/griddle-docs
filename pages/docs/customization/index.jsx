@@ -1,15 +1,19 @@
-import React, { Component, PropTypes } from 'react';
-import DocumentTitle from 'react-document-title'
-import Markdown from 'components/Markdown';
-import Griddle, { plugins, RowDefinition, ColumnDefinition } from 'griddle-react';
+import React, { Component, PropTypes } from "react";
+import DocumentTitle from "react-document-title";
+import Markdown from "components/Markdown";
+import Griddle, {
+  plugins,
+  RowDefinition,
+  ColumnDefinition
+} from "griddle-react";
 
-import { config } from 'config';
-import fakeData from 'utils/fakeData';
+import { config } from "config";
+import fakeData from "utils/fakeData";
 
 exports.data = {
-  title: 'Customization',
+  title: "Customization",
   order: 5
-}
+};
 
 const start = `
   # Customization #
@@ -37,7 +41,7 @@ const start = `
       </RowDefinition>
     </Griddle>
   \`\`\`
-`
+`;
 
 const componentCustomization = `
   ## Component Customization ##
@@ -52,7 +56,7 @@ const componentCustomization = `
   \`\`\`
   class Filter extends Component {
     onChange(e) {
-      this.props.onChange(e.target.value);
+      this.props.setFilter(e.target.value);
     }
 
     render() {
@@ -78,7 +82,7 @@ const componentCustomization = `
 
 const customization2 = `
   This type of component overriding works with any of the components.
-`
+`;
 
 const containerCustomization = `
   ## Container customization ##
@@ -138,7 +142,7 @@ const containerCustomization = `
   The core container is using \`dataSelectors\` where the localContainer is getting data
   from \`localSelectors\` -- this ability to change out the container component while leaving
   the view as-is has been a powerful abstraction for customizing Griddle.
-`
+`;
 
 const layout = `
   ## Layout ##
@@ -176,16 +180,23 @@ const layout = `
     }}
   />
   \`\`\`
-`
+`;
 
 const continuedAtPlugins = `
   While you can customize just about anything in Griddle using these mechanisms, a more powerful
   option exists for creating reusable customizations through plugins. [Learn more about plugins](../plugins/)
-`
+`;
 
-const NewLayout = ({ Table, Pagination, Filter, SettingsWrapper, style, className }) => (
+const NewLayout = ({
+  Table,
+  Pagination,
+  Filter,
+  SettingsWrapper,
+  style,
+  className
+}) => (
   <div className={className} style={style}>
-    <div style={{ float: 'left', width: '50%' }}>
+    <div style={{ float: "left", width: "50%" }}>
       <Filter />
     </div>
     <Pagination />
@@ -196,11 +207,11 @@ const NewLayout = ({ Table, Pagination, Filter, SettingsWrapper, style, classNam
 class Filter extends Component {
   static propTypes = {
     setFilter: PropTypes.func.isRequired
-  }
+  };
 
-  onChange = (e) => {
+  onChange = e => {
     this.props.setFilter(e.target.value);
-  }
+  };
 
   render() {
     return (
@@ -214,12 +225,16 @@ class Filter extends Component {
   }
 }
 
-const CustomColumn = ({value}) => <span style={{ color: '#0000AA' }}>{value}</span>;
-const CustomHeading = ({title}) => <span style={{ color: '#AA0000' }}>{title}</span>;
+const CustomColumn = ({ value }) => (
+  <span style={{ color: "#0000AA" }}>{value}</span>
+);
+const CustomHeading = ({ title }) => (
+  <span style={{ color: "#AA0000" }}>{title}</span>
+);
 
 const Customization = React.createClass({
-  render () {
-    const page = this.props.route.page
+  render() {
+    const page = this.props.route.page;
 
     return (
       <DocumentTitle title={`${page.data.title} | ${config.siteTitle}`}>
@@ -229,7 +244,10 @@ const Customization = React.createClass({
           <Griddle data={fakeData} plugins={[plugins.LocalPlugin]}>
             <RowDefinition>
               <ColumnDefinition id="name" customComponent={CustomColumn} />
-              <ColumnDefinition id="state" customHeadingComponent={CustomHeading} />
+              <ColumnDefinition
+                id="state"
+                customHeadingComponent={CustomHeading}
+              />
               <ColumnDefinition id="company" />
             </RowDefinition>
           </Griddle>
@@ -258,12 +276,12 @@ const Customization = React.createClass({
             }}
             styleConfig={{
               styles: {
-                Pagination: { textAlign: 'right' }
+                Pagination: { textAlign: "right" }
               }
             }}
           />
           <Markdown text={continuedAtPlugins} />
-         </div>
+        </div>
       </DocumentTitle>
     );
   }
