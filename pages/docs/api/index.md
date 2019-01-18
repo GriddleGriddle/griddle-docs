@@ -270,7 +270,7 @@ Right now this is mostly a placeholder for ColumnDefinitions but will have more 
   <Griddle data={data}>
     <RowDefinition>
       <ColumnDefinition id="name" title="Name" />
-      <ColumnDefinition id="company" title="Company order={1} />
+      <ColumnDefinition id="company" title="Company order={1}" />
     </RowDefinition>
   </Griddle>
 ```
