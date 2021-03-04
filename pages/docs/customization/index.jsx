@@ -26,7 +26,7 @@ const start = `
 
   ## Custom columns ##
 
-  In Griddle we can custom columns or column headings through the \`ColumnDefinitions\` object. Lets say we want to add a custom column
+  In Griddle we can create custom columns or column headings with the \`ColumnDefinitions\` object. Lets say we want to add a custom column
   where we make the text blue for name but make the heading text red on another column -- We would achieve this with CustomColumn / CustomColumnHeadings.
 
   \`\`\`
